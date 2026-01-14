@@ -1,239 +1,220 @@
 import 'package:flutter/material.dart';
-import 'package:ui_pages/theme/mainpage_typography.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:ui_pages/home.dart';
 
 void main() {
-  runApp(const UiPages());
+  runApp(const UiStyles());
 }
 
-class UiPages extends StatelessWidget {
-  const UiPages({super.key});
+class UiStyles extends StatelessWidget {
+  const UiStyles({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
       debugShowCheckedModeBanner: false,
-      title: 'UI Pages',
-      home: MainPage(),
-    );
-  }
-}
 
-class MainPage extends StatelessWidget {
-  const MainPage({super.key});
-  
-  @override
-  Widget build(BuildContext context) {    
-    
-    return Scaffold(
-      backgroundColor: Color(0xffbfc0d1),
-
-      appBar: AppBar(
-
-// height of the app bar 
-        toolbarHeight: 60,
-      
-// text for the app bar inside of padding to be centered
-        title: Padding(
-          padding: const EdgeInsets.fromLTRB(8,24,0,0),
-          child: Text(
-            "UI PAGES",
-            style: TextStyle(
-              color: Color(0xffbfc0d1),
-              fontFamily: FontFamily.fontFamily,
-              fontSize: FontSizes.xl,
-              fontWeight: FontWeights.semibold,
-            ),
-          ),
-        ),
-        backgroundColor: Color(0xff1e202c),
-        
-        actions: [
-
-// action 1 : github visit button
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0,20,16,0),
-            child: IconButton(
-              onPressed: () {}, // to github account
-              icon: Icon(
-                Icons.castle, // github logo
-                color: Color(0xffbfc0d1),
-              )
-            ),
-          )
-
-// action 2 :
-// not in mind
-
-        ],
-      
-      ),
-      
-      body: ListView(
-
-        children: [
-
-// for the rounded app bar 
-          Container(
-            width: double.infinity,
-            height: 20,
-            decoration: BoxDecoration(
-              color: Color(0xff1e202c),
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(32),
-                bottomRight: Radius.circular(32),
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: Color(0xff60519b),
-                  blurRadius: 16,
-                  spreadRadius: 2,
-                  offset: Offset(0, 4)
-                )
-              ]
-            ),
-          ),
-
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16,20,0,0),
-            child: Text(
-              "Hey!",
-              style: TextStyle(
-                fontSize: 32,
-                fontFamily: FontFamily.fontFamily,
-                fontWeight: FontWeights.semibold,
-                height: 1,
-                letterSpacing: 0
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16,0,0,12),
-            child: Text("This is the collection of different UI styles I could create using FLUTTER."),
-          ),
-
-          PagesButton(),
-
-        ],
-      ),
+      home: const IntroPage(),
 
     );
   }
 }
 
-class PagesButton extends StatelessWidget {
-  const PagesButton({super.key});
+class IntroPage extends StatelessWidget{
+  const IntroPage({super.key});
 
   @override
   Widget build(BuildContext context) {
 
-    return Padding(
-      padding: const EdgeInsets.all(12.0),
-      
-      child: Container(
-      
-        height: 100,
-        width: double.infinity,
-      
-        decoration: BoxDecoration(
-          
-          color: Color(0xFF31323e),
+    return Scaffold(
 
-          borderRadius: BorderRadius.circular(24),
-          
-          // border: Border.all(
-            // color: Color(0xff60519b),
-            // width: 0,
-          // ),
-      
-          boxShadow: [
-            BoxShadow(
-              color: Color(0xff60519b),
-              blurRadius: 12,
-              spreadRadius: 2,
+      body: LayoutBuilder(
+        builder: (context,values){
+          final isWide = values.maxWidth > 600;
+
+          return isWide
+            ?Row(
+              children: [
+                Expanded(child: HeroSection()),
+                Expanded(child: IntroSection()),
+              ],
             )
-          ],
+            :Column(
+              children: [
+                Expanded(child: HeroSection()),
+                Expanded(child: IntroSection()),
+              ],
+            );
+        }
+      )
+
+    );
+  }
+}
+
+class HeroSection extends StatelessWidget {
+  const HeroSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
       
-        ),
+      width: double.infinity,
+      decoration: BoxDecoration(color: Colors.white),
       
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
+        
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+
+        children: [
+      
+          SizedBox(height: 20,),
+
+          Text(
+            "UI / UX",
+            style: GoogleFonts.inter(
+              color: Color(0xff282828),
+              fontWeight: FontWeight.w900,
+              fontSize: 80,
+              letterSpacing: -2,
+              height: 1
+            ),
+          ),
+      
+          Text(
+            "DESIGN IN MOTION",
+            style: GoogleFonts.inter(
+              color: Color(0xff282828).withValues(alpha: 0.50),
+              fontWeight: FontWeight.w500,
+              fontSize: 16,
+              letterSpacing: 4,
+              wordSpacing: 4,
+            ),
+          ),
+      
+        ],
+      )
+    
+    );
+  }
+}
+
+class IntroSection extends StatelessWidget {
+  const IntroSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+
+      width: double.infinity,
+      decoration: BoxDecoration(color: Color(0xff282828)),
+
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(32,32,32,0),
+
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+        
           children: [
-            
-            Padding(
-              
-              padding: const EdgeInsets.all(12.0),
-              
+        
+            Text(
+              // "Let's Begin",
+              // "Welcome",
+              "Pages",
+              style: GoogleFonts.inter(
+                color: Color(0xfff5f5f5),
+                fontWeight: FontWeight.w700,
+                fontSize: 40,
+                letterSpacing: -1,
+                height: 1
+              ),
+            ),
+          
+          SizedBox(height: 8,),
+
+            Text(
+              "A place to explore UI and UX.\nTo test ideas.\nTo build better interfaces.",
+              style: GoogleFonts.inter(
+                color: Color(0xfff5f5f5).withValues(alpha: 0.50),
+                fontWeight: FontWeight.w500,
+                fontSize: 16,
+              ),
+            ),
+
+            Spacer(),
+
+            Center(
               child: SizedBox(
-                width: 260,
-
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                    
-                  children: [
-                
-                    Text(
-                      "Neumorphism", // <--- name of the page goes here
-                      style: TextStyle(
-                        color: Color(0xffbfc0d1),
-                        fontFamily: FontFamily.fontFamily,
-                        fontSize: 24,
-                        fontWeight: FontWeights.medium,
-                        height: 1,
-                        letterSpacing: 0,
-                      ),
-                    ),
-                
-                    SizedBox(height: 4),
-                
-                    Text(
-                      "The description of the style",
-                      style: TextStyle(
-                        color: Color(0xffbfc0d1),
-                      ),
-                    ),
-                
-                  ],
-                ),
-              ),
-            ),
-
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                height: double.infinity,
-                width: 84,
-              
-                decoration: BoxDecoration(
-              
-                  color: Color(0xffbfc0d1),
-              
-                  borderRadius: BorderRadius.circular(20),
+                height: 52,
+                width: 142,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context, MaterialPageRoute(
+                        builder: (context) => HomePage()
+                      )
+                    );
+                  }, 
                   
-                  // border: Border.all(
-                    // color: Color(0xff60519b),
-                    // width: 0,
+                  style: ElevatedButton.styleFrom(
+                    overlayColor: Color(0xff000000),
+                    shadowColor: Color(0xffffffff),
+                    shape:RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(16)),
+                  ),
+                    
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(6,8,0,8),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                
+                        children: [
+                
+                          Text(
+                            "Let's Begin",
+                            style: GoogleFonts.inter(
+                              color: Color(0xff282828),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                
+
+                          Icon(
+                            Icons.arrow_forward_ios_rounded,
+                            size: 16,
+                            color: Color(0xff282828),
+                          )
+                
+                        ],
+                      ),
+                    ),
+                  
                   // ),
-              
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0xffbfc0d1).withValues(alpha: 0.4),
-                      blurRadius: 12,
-                      spreadRadius: 2,
-                    )
-                  ],
-
                 ),
-
-                // child: button, clickable to next page
-
               ),
             ),
+
+            Center(
+              child: TextButton(
+                onPressed: () {}, 
+                child: Text(
+                  "star us on github : Abhinav08bhatt",
+                  style: GoogleFonts.inter(
+                    color: Color(0xfff5f5f5).withValues(alpha: 0.32),
+                  ),
+                )
+              ),
+            ),
+
+            SizedBox(height: 4,)
 
           ],
         ),
-      
-      ),
-
+      )
+    
     );
   }
 }
