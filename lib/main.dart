@@ -149,7 +149,7 @@ class IntroSection extends StatelessWidget {
             Center(
               child: SizedBox(
                 height: 52,
-                width: 142,
+                width: 164,
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -164,11 +164,11 @@ class IntroSection extends StatelessWidget {
                     shadowColor: Color(0xffffffff),
                     shape:RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(16)),
                   ),
-                    
+
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(6,8,0,8),
+                      padding: const EdgeInsets.fromLTRB(0,0,0,0),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.center,
                 
                         children: [
                 
@@ -181,7 +181,8 @@ class IntroSection extends StatelessWidget {
                             ),
                           ),
                 
-
+                          SizedBox(width: 4,),
+                          
                           Icon(
                             Icons.arrow_forward_ios_rounded,
                             size: 16,
