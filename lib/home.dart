@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -53,26 +55,7 @@ class HomePage extends StatelessWidget {
                 ),
             ),
 
-            Top3Pages(
-              appName: "WhatsApp",
-              appIcon: Icon(
-                Icons.add_circle_outline_rounded,
-                size: 42,
-                color: Color(0xff40c351),
-              ),
-              font: "Roboto",
-              primaryTextStyle: GoogleFonts.roboto(
-                fontSize: 16,
-              ),
-              primaryColor: Color(0xff40C351),
-              primaryColorHex: "#40C351",
-              secondaryColor: Color(0xff40C351),
-              secondaryColorHex: "#40C351",
-              thirdColor: Color(0xff40C351),
-              thirdColorHex: "#40C351",
-              pageName: "whatsapp",
-              gitFolderName: "github-repo-link",
-            ),
+            Top3PagesScroller(),
 
           ],
         ),
@@ -82,11 +65,118 @@ class HomePage extends StatelessWidget {
   }
 }
 
+class Top3PagesScroller extends StatelessWidget{
+  const Top3PagesScroller({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final screenWidth = constraints.maxWidth;
+
+        final double pageWidth =
+            screenWidth < 400 ? screenWidth : screenWidth.clamp(400.0, 600.0);
+
+        return SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          physics: const BouncingScrollPhysics(),
+          child: Row(
+            children: [
+              SizedBox(
+                width: pageWidth,
+                child: Top3Pages(
+                  appName: "WhatsApp",
+                  appIcon: Icon(
+                    Icons.add_circle_outline_rounded,
+                    size: 42,
+                    color: Color(0xff40c351),
+                  ),
+                  font: "Roboto",
+                  primaryTextStyle: GoogleFonts.roboto(fontSize: 16),
+                  primaryColor: Color(0xff40C351),
+                  primaryColorHex: "#40C351",
+                  secondaryColor: Color(0xff40C351),
+                  secondaryColorHex: "#40C351",
+                  thirdColor: Color(0xff40C351),
+                  thirdColorHex: "#40C351",
+                  pageName: "whatsapp",
+                  gitFolderName: "github-repo-link",
+                  gitFolderLink: "https://github.com/Abhinav08bhatt/UI-UX/tree/main/lib/WhatsApp",
+                ),
+              ),
+
+
+              const SizedBox(width: 16),
+
+              SizedBox(
+                width: pageWidth,
+                child: Top3Pages(
+                  appName: "Airbnb",
+                  appIcon: Icon(
+                    Icons.home_rounded,
+                    size: 42,
+                    color: Color(0xFFFF5A5F),
+                  ),
+                  font: "Inter",
+                  primaryTextStyle: GoogleFonts.inter(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  primaryColor: Color(0xFFFF5A5F),
+                  primaryColorHex: "#FF5A5F",
+                  secondaryColor: Color(0xFF767676),
+                  secondaryColorHex: "#767676",
+                  thirdColor: Color(0xFFF7F7F7),
+                  thirdColorHex: "#F7F7F7",
+                  pageName: "airbnb",
+                  gitFolderName: "airbnb",
+                  gitFolderLink: "https://github.com/Abhinav08bhatt/UI-UX/tree/main/lib/Airbnb",
+                )
+              ),
+
+              const SizedBox(width: 16),
+
+              SizedBox(
+                width: pageWidth,
+                child: Top3Pages(
+                  appName: "Spotify",
+                  appIcon: Icon(
+                    Icons.music_note_rounded,
+                    size: 42,
+                    color: Color(0xFF1DB954),
+                  ),
+                  font: "Inter",
+                  primaryTextStyle: GoogleFonts.inter(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  primaryColor: Color(0xFF1DB954),
+                  primaryColorHex: "#1DB954",
+                  secondaryColor: Color(0xFF191414),
+                  secondaryColorHex: "#191414",
+                  thirdColor: Color(0xFF2A2A2A),
+                  thirdColorHex: "#2A2A2A",
+                  pageName: "spotify",
+                  gitFolderName: "spotify",
+                  gitFolderLink: "https://github.com/Abhinav08bhatt/UI-UX/tree/main/lib/Spotify",
+                )
+              ),
+              
+            ],
+          ),
+        );
+      },
+    );
+  }
+}
+
 class Top3Pages extends StatelessWidget{
   final String appName , font , primaryColorHex , secondaryColorHex , thirdColorHex , pageName , gitFolderName ;
   final Color primaryColor , secondaryColor , thirdColor;
   final Icon appIcon;
   final TextStyle primaryTextStyle;
+  final String gitFolderLink;
 
   const Top3Pages({
     super.key,
@@ -102,6 +192,7 @@ class Top3Pages extends StatelessWidget{
     required this.thirdColorHex,
     required this.pageName,             // <- no clue
     required this.gitFolderName,        // <- no clue
+    required this.gitFolderLink,        // <- no clue
   });
 
   @override
@@ -393,7 +484,7 @@ class Top3Pages extends StatelessWidget{
                                   onPressed: () async {
                                     await launchUrl(
                                       Uri.parse(
-                                        'https://github.com/Abhinav08bhatt/UI-UX/tree/main/lib/whatsapp',
+                                        gitFolderLink,
                                       ),
                                       mode: LaunchMode.externalApplication,
                                     );
