@@ -1,5 +1,3 @@
-# UI PAGES
+# UI UX
 
-This is a collection of the UI styles I could create using Flutter
-Every UI style has its own page (in code and in app too)
-
+A collection of interface redesigns, focused on clarity and usability.
