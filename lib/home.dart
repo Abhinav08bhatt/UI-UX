@@ -12,8 +12,6 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xfff5f5f5),
 
-
-
       body: SafeArea(
         child: ListView(
           children: [
@@ -59,10 +57,10 @@ class HomePage extends StatelessWidget {
                     },  
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: FaIcon(
-                        FontAwesomeIcons.github,
-                        size: 32,
-                      ),
+                      child: CircleAvatar(
+                        radius: 20,
+                        backgroundImage: AssetImage('assets/images/logo.jpeg'),
+                      )
                     )
                   )
 
