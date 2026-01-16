@@ -1,5 +1,4 @@
-import 'dart:io';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -13,42 +12,71 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xfff5f5f5),
 
-      // appBar: AppBar(
-        
-      //   automaticallyImplyLeading: false,
-      //   scrolledUnderElevation: 1,
-      //   backgroundColor: Color(0xfff5f5f5),
-      //   // backgroundColor: Color(0xff282828),
-      //   toolbarHeight: 40,
 
-      //   title: Padding(
-      //     padding: const EdgeInsets.fromLTRB(4,16,0,0),
-
-      //     child: Text(
-      //       "UI / UX",
-      //       style: GoogleFonts.ubuntu(
-      //         // color: Color(0xfff5f5f5),
-      //         color: Color(0xff282828),
-      //         fontSize: 24,
-      //         fontWeight: FontWeight.w600,
-      //         letterSpacing: -1,
-      //         height: 1,
-      //       ),
-      //     ),
-      //   ),
-      // ),
 
       body: SafeArea(
         child: ListView(
           children: [
 
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+              padding: const EdgeInsets.fromLTRB(16, 4, 8, 24),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      
+                      Text(
+                        'Abhinav',
+                        style: GoogleFonts.robotoFlex(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                          color: const Color(0xff0b0c10),
+                        ),
+                      ),
+                      // const SizedBox(height: 4),
+                      Text(
+                        'Frontend & UI Engineering',
+                        style: GoogleFonts.robotoFlex(
+                          fontSize: 14,
+                          color: const Color(0xff0b0c10).withValues(alpha: 0.6),
+                        ),
+                      ),
+
+                    ],
+                  ),
+
+                  GestureDetector(
+                    onTap: () async {
+                      await launchUrl(
+                        Uri.parse(
+                          "https://github.com/Abhinav08bhatt",
+                        ),
+                        mode: LaunchMode.externalApplication,
+                      );
+                    },  
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: FaIcon(
+                        FontAwesomeIcons.github,
+                        size: 32,
+                      ),
+                    )
+                  )
+
+                ],
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                 child: Text(
-                  "Featured",                                    // <- A better text here
+                  "Selected UI Case Studies",                                    // <- A better text here
                   style: GoogleFonts.robotoFlex(
                     color: Color(0xff0b0c10),
-                    fontSize: 32,
+                    fontSize: 24,
                     fontWeight: FontWeight.w500,
                     height: 1,
                   ),
@@ -56,6 +84,23 @@ class HomePage extends StatelessWidget {
             ),
 
             Top3PagesScroller(),
+
+            SizedBox(height: 20,),
+
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+              child: Text(
+                'More UI Projects',
+                style: GoogleFonts.robotoFlex(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+
+            SizedBox(height: 6,),
+
+            MorePagesSection()
 
           ],
         ),
@@ -83,13 +128,15 @@ class Top3PagesScroller extends StatelessWidget{
           physics: const BouncingScrollPhysics(),
           child: Row(
             children: [
+
+
               SizedBox(
                 width: pageWidth,
                 child: Top3Pages(
                   appName: "WhatsApp",
-                  appIcon: Icon(
-                    Icons.add_circle_outline_rounded,
-                    size: 42,
+                  appIcon: FaIcon(
+                    FontAwesomeIcons.whatsapp,
+                    size: 40,
                     color: Color(0xff40c351),
                   ),
                   font: "Roboto",
@@ -102,6 +149,7 @@ class Top3PagesScroller extends StatelessWidget{
                   thirdColorHex: "#40C351",
                   pageName: "whatsapp",
                   gitFolderName: "github-repo-link",
+                  destinationPage: Placeholder(),
                   gitFolderLink: "https://github.com/Abhinav08bhatt/UI-UX/tree/main/lib/WhatsApp",
                 ),
               ),
@@ -113,9 +161,9 @@ class Top3PagesScroller extends StatelessWidget{
                 width: pageWidth,
                 child: Top3Pages(
                   appName: "Airbnb",
-                  appIcon: Icon(
-                    Icons.home_rounded,
-                    size: 42,
+                  appIcon: FaIcon(
+                    FontAwesomeIcons.airbnb,
+                    size: 40,
                     color: Color(0xFFFF5A5F),
                   ),
                   font: "Inter",
@@ -131,6 +179,7 @@ class Top3PagesScroller extends StatelessWidget{
                   thirdColorHex: "#F7F7F7",
                   pageName: "airbnb",
                   gitFolderName: "airbnb",
+                  destinationPage: Placeholder(),
                   gitFolderLink: "https://github.com/Abhinav08bhatt/UI-UX/tree/main/lib/Airbnb",
                 )
               ),
@@ -140,10 +189,10 @@ class Top3PagesScroller extends StatelessWidget{
               SizedBox(
                 width: pageWidth,
                 child: Top3Pages(
-                  appName: "Spotify",
-                  appIcon: Icon(
-                    Icons.music_note_rounded,
-                    size: 42,
+                  appName : "Spotify",
+                  appIcon :FaIcon(
+                    FontAwesomeIcons.spotify,
+                    size: 40,
                     color: Color(0xFF1DB954),
                   ),
                   font: "Inter",
@@ -159,6 +208,7 @@ class Top3PagesScroller extends StatelessWidget{
                   thirdColorHex: "#2A2A2A",
                   pageName: "spotify",
                   gitFolderName: "spotify",
+                  destinationPage: Placeholder(),
                   gitFolderLink: "https://github.com/Abhinav08bhatt/UI-UX/tree/main/lib/Spotify",
                 )
               ),
@@ -177,6 +227,7 @@ class Top3Pages extends StatelessWidget{
   final Icon appIcon;
   final TextStyle primaryTextStyle;
   final String gitFolderLink;
+  final Widget destinationPage;
 
   const Top3Pages({
     super.key,
@@ -190,9 +241,10 @@ class Top3Pages extends StatelessWidget{
     required this.secondaryColorHex,
     required this.thirdColor,
     required this.thirdColorHex,
-    required this.pageName,             // <- no clue
-    required this.gitFolderName,        // <- no clue
-    required this.gitFolderLink,        // <- no clue
+    required this.pageName,             
+    required this.gitFolderName,        
+    required this.gitFolderLink,   
+    required this.destinationPage     
   });
 
   @override
@@ -251,7 +303,10 @@ class Top3Pages extends StatelessWidget{
               
                       SizedBox(width: 6,),
               
-                      appIcon,
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0,0,4,0),
+                        child: appIcon,
+                      ),
                       
                     ],
                   ),
@@ -312,143 +367,141 @@ class Top3Pages extends StatelessWidget{
                             ),
 
                             Padding(
-                              padding: const EdgeInsets.fromLTRB(12,10,0,0),
-                              child: Expanded(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                
-                                    Text("Colors",
-                                      style: GoogleFonts.roboto(
-                                        color: Color(0xff282828),
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.w500,
-                                        letterSpacing: 0
-                                      ),
+                              padding: const EdgeInsets.fromLTRB(12,8,0,0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                              
+                                  Text("Colors",
+                                    style: GoogleFonts.roboto(
+                                      color: Color(0xff282828),
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w500,
+                                      letterSpacing: 0
                                     ),
-
-                                    SizedBox(height: 8,),
-                                
-                                    Align(
-                                      alignment: AlignmentGeometry.bottomLeft,
-                                      child: Wrap(
-                                        spacing: 8,
-                                        runSpacing: 8,
-                                        
-                                        children: [
-
-                                          GestureDetector(
-                                            onTap: () {},
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                color: Color(0xfff5f5f5),
-                                                borderRadius: BorderRadius.circular(8),
-                                                boxShadow: [BoxShadow(color: primaryColor.withValues(alpha: 0.10),blurRadius: 8,spreadRadius: 2)],
-                                              ),
-                                              padding: EdgeInsets.fromLTRB(0,0,8,0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.min,
-                                                children: [
-                                            
-                                                  Padding(
-                                                    padding: const EdgeInsets.fromLTRB(8,8,4,8),
-                                                    child: Container(
-                                                      height: 14 , width: 14 , 
-                                                      decoration: BoxDecoration(
-                                                        color: primaryColor,
-                                                        borderRadius: BorderRadius.circular(10)
-                                                      ),
-                                                    ),
-                                                  ),
-                                            
-                                                  Text(primaryColorHex,style: GoogleFonts.robotoFlex(fontSize: 14,color: Color(0xff282828).withValues(alpha: 0.80)),),
-                                                                                  
-                                                  SizedBox(width: 4,),
-                                            
-                                                  Icon(Icons.copy,size: 14,)
-                                            
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-
-                                          GestureDetector(
-                                            onTap: () {},
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                color: Color(0xfff5f5f5),
-                                                borderRadius: BorderRadius.circular(8),
-                                                boxShadow: [BoxShadow(color: primaryColor.withValues(alpha: 0.10),blurRadius: 8,spreadRadius: 2)],
-                                              ),
-                                              padding: EdgeInsets.fromLTRB(0,0,8,0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.min,
-                                                children: [
-                                            
-                                                  Padding(
-                                                    padding: const EdgeInsets.fromLTRB(8,8,4,8),
-                                                    child: Container(
-                                                      height: 14 , width: 14 , 
-                                                      decoration: BoxDecoration(
-                                                        color: primaryColor,
-                                                        borderRadius: BorderRadius.circular(10)
-                                                      ),
-                                                    ),
-                                                  ),
-                                            
-                                                  Text(primaryColorHex,style: GoogleFonts.robotoFlex(fontSize: 14,color: Color(0xff282828).withValues(alpha: 0.80)),),
-                                                                                  
-                                                  SizedBox(width: 4,),
-                                            
-                                                  Icon(Icons.copy,size: 14,)
-                                            
-                                                ],
-                                              ),
-                                            ),
-                                          ),
+                                  ),
+                              
+                                  SizedBox(height: 8,),
+                              
+                                  Align(
+                                    alignment: AlignmentGeometry.bottomLeft,
+                                    child: Wrap(
+                                      spacing: 8,
+                                      runSpacing: 8,
                                       
-                                          GestureDetector(
-                                            onTap: () {},
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                color: Color(0xfff5f5f5),
-                                                borderRadius: BorderRadius.circular(8),
-                                                boxShadow: [BoxShadow(color: primaryColor.withValues(alpha: 0.10),blurRadius: 8,spreadRadius: 2)],
-                                              ),
-                                              padding: EdgeInsets.fromLTRB(0,0,8,0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.min,
-                                                children: [
-                                            
-                                                  Padding(
-                                                    padding: const EdgeInsets.fromLTRB(8,8,4,8),
-                                                    child: Container(
-                                                      height: 14 , width: 14 , 
-                                                      decoration: BoxDecoration(
-                                                        color: primaryColor,
-                                                        borderRadius: BorderRadius.circular(10)
-                                                      ),
+                                      children: [
+                              
+                                        GestureDetector(
+                                          onTap: () {},
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              color: Color(0xfff5f5f5),
+                                              borderRadius: BorderRadius.circular(8),
+                                              boxShadow: [BoxShadow(color: primaryColor.withValues(alpha: 0.10),blurRadius: 8,spreadRadius: 2)],
+                                            ),
+                                            padding: EdgeInsets.fromLTRB(0,0,8,0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                          
+                                                Padding(
+                                                  padding: const EdgeInsets.fromLTRB(8,8,4,8),
+                                                  child: Container(
+                                                    height: 14 , width: 14 , 
+                                                    decoration: BoxDecoration(
+                                                      color: primaryColor,
+                                                      borderRadius: BorderRadius.circular(10)
                                                     ),
                                                   ),
-                                            
-                                                  Text(primaryColorHex,style: GoogleFonts.robotoFlex(fontSize: 14,color: Color(0xff282828).withValues(alpha: 0.80)),),
-                                                                                  
-                                                  SizedBox(width: 4,),
-                                            
-                                                  Icon(Icons.copy,size: 14,)
-                                            
-                                                ],
-                                              ),
+                                                ),
+                                          
+                                                Text(primaryColorHex,style: GoogleFonts.robotoFlex(fontSize: 14,color: Color(0xff282828).withValues(alpha: 0.80)),),
+                                                                                
+                                                SizedBox(width: 4,),
+                                          
+                                                Icon(Icons.copy,size: 14,)
+                                          
+                                              ],
                                             ),
                                           ),
-                                      
-                                        ],
-                                      ),
-                                    )
-                                
-                                  ],
-                                ),
+                                        ),
+                              
+                                        GestureDetector(
+                                          onTap: () {},
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              color: Color(0xfff5f5f5),
+                                              borderRadius: BorderRadius.circular(8),
+                                              boxShadow: [BoxShadow(color: primaryColor.withValues(alpha: 0.10),blurRadius: 8,spreadRadius: 2)],
+                                            ),
+                                            padding: EdgeInsets.fromLTRB(0,0,8,0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                          
+                                                Padding(
+                                                  padding: const EdgeInsets.fromLTRB(8,8,4,8),
+                                                  child: Container(
+                                                    height: 14 , width: 14 , 
+                                                    decoration: BoxDecoration(
+                                                      color: primaryColor,
+                                                      borderRadius: BorderRadius.circular(10)
+                                                    ),
+                                                  ),
+                                                ),
+                                          
+                                                Text(primaryColorHex,style: GoogleFonts.robotoFlex(fontSize: 14,color: Color(0xff282828).withValues(alpha: 0.80)),),
+                                                                                
+                                                SizedBox(width: 4,),
+                                          
+                                                Icon(Icons.copy,size: 14,)
+                                          
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                    
+                                        GestureDetector(
+                                          onTap: () {},
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              color: Color(0xfff5f5f5),
+                                              borderRadius: BorderRadius.circular(8),
+                                              boxShadow: [BoxShadow(color: primaryColor.withValues(alpha: 0.10),blurRadius: 8,spreadRadius: 2)],
+                                            ),
+                                            padding: EdgeInsets.fromLTRB(0,0,8,0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                          
+                                                Padding(
+                                                  padding: const EdgeInsets.fromLTRB(8,8,4,8),
+                                                  child: Container(
+                                                    height: 14 , width: 14 , 
+                                                    decoration: BoxDecoration(
+                                                      color: primaryColor,
+                                                      borderRadius: BorderRadius.circular(10)
+                                                    ),
+                                                  ),
+                                                ),
+                                          
+                                                Text(primaryColorHex,style: GoogleFonts.robotoFlex(fontSize: 14,color: Color(0xff282828).withValues(alpha: 0.80)),),
+                                                                                
+                                                SizedBox(width: 4,),
+                                          
+                                                Icon(Icons.copy,size: 14,)
+                                          
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                    
+                                      ],
+                                    ),
+                                  )
+                              
+                                ],
                               ),
                             ),
 
@@ -460,51 +513,67 @@ class Top3Pages extends StatelessWidget{
 
                                 Expanded(
                                   child: ElevatedButton(
-                                  onPressed: () {}, 
-                                  style: ElevatedButton.styleFrom(
-                                    elevation: 1,
-                                    backgroundColor: Color(0xfff5f5f5),
-                                    shadowColor: primaryColor.withValues(alpha: 0.50),
-                                    overlayColor: primaryColor,
-                                    shape:ContinuousRectangleBorder(borderRadius: BorderRadiusGeometry.circular(24)),
-                                  ),
-                                  child: Text(
-                                    "Open Clone",
-                                    style: GoogleFonts.robotoFlex(
-                                      fontWeight: FontWeight.w600,
-                                      color: primaryColor
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (_) => destinationPage,
+                                        ),
+                                      );
+                                    }, 
+                                    style: ElevatedButton.styleFrom(
+                                      // elevation: 1,
+                                      // backgroundColor: Color(0xfff5f5f5),
+                                      backgroundColor: primaryColor,
+                                      // shadowColor: primaryColor.withValues(alpha: 0.50),
+                                      // overlayColor: primaryColor,
+                                      overlayColor: Color(0xfff5f5f5),
+                                      shape:ContinuousRectangleBorder(borderRadius: BorderRadiusGeometry.circular(24)),
+                                      padding: EdgeInsets.fromLTRB(0, 8, 0, 8)
                                     ),
+                                    child: Text(
+                                      "Open Clone",
+                                      style: GoogleFonts.robotoFlex(
+                                        fontWeight: FontWeight.w600,
+                                        // color: primaryColor,
+                                        color: Color(0xfff5f5f5),
+                                        fontSize: 18,
+                                      ),
+                                    )
                                   )
-                                )),
+                                ),
                                 
                                 SizedBox(width: 8,),
 
-                                Expanded(
-                                  child: ElevatedButton(
-                                  onPressed: () async {
-                                    await launchUrl(
-                                      Uri.parse(
-                                        gitFolderLink,
+                                SizedBox(
+                                  child: GestureDetector(
+                                    onTap: () async {
+                                      await launchUrl(
+                                        Uri.parse(
+                                          gitFolderLink,
+                                        ),
+                                        mode: LaunchMode.externalApplication,
+                                      );
+                                    }, 
+                                    child: Container(
+                                      padding: EdgeInsets.all(10),
+                                      decoration: BoxDecoration(
+                                        color: Color(0xff1877D7).withValues(alpha: 0.90),
+                                        border: Border.all(color: Color(0xff1877D7).withValues(alpha: 0.60)),
+                                        borderRadius: BorderRadius.circular(10)
                                       ),
-                                      mode: LaunchMode.externalApplication,
-                                    );
-                                  }, 
-                                  style: ElevatedButton.styleFrom(
-                                    elevation: 1,
-                                    backgroundColor: Color(0xfff5f5f5),
-                                    shadowColor: Color(0xff1F6FEB).withValues(alpha: 0.50),
-                                    overlayColor: Color(0xff1F6FEB),
-                                    shape:ContinuousRectangleBorder(borderRadius: BorderRadiusGeometry.circular(24)),
-                                  ),
-                                  child: Text(
-                                    "Follow Code",
-                                    style: GoogleFonts.robotoFlex(
-                                      fontWeight: FontWeight.w600,
-                                      color: Color(0xff1F6FEB)
-                                    ),
+                                      child: FaIcon(
+                                        FontAwesomeIcons.code,
+                                        color: Color(0xfff5f5f5),
+                                        size: 18,
+                                      ),
+                                    ) 
                                   )
-                                )),
-                                SizedBox(width: 0,),
+                                
+                                ),
+
+                                SizedBox(width: 8,),
+
                               ],
                             )
 
@@ -522,6 +591,163 @@ class Top3Pages extends StatelessWidget{
           ],
         ),
 
+    );
+  }
+}
+
+class MorePagesSection extends StatelessWidget{
+  const MorePagesSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+
+    return Column(
+      children: [
+        
+        MorePages(
+          appName: "Twitter",
+          subtitle: "Dark theme · Feed layout",
+          appIcon: FaIcon(
+            FontAwesomeIcons.twitter,
+            size: 16,
+            color: Color(0xff1DA1F2),
+          ),
+          primaryColor: Color(0xff1DA1F2),
+          destinationPage: Placeholder(),
+          gitFolderLink: "https://github.com/Abhinav08bhatt/UI-UX/tree/main/lib/WhatsApp",
+          
+        ),
+
+        MorePages(
+          appName: "Instagram",
+          subtitle: "Dark theme · Stories & Feed",
+          appIcon: FaIcon(
+            FontAwesomeIcons.instagram,
+            size: 16,
+            color: Color(0xffE1306C),
+          ),
+          primaryColor: Color(0xffE1306C),
+          destinationPage: Placeholder(),
+          gitFolderLink: "https://github.com/Abhinav08bhatt/UI-UX/tree/main/lib/Instagram",
+        ),
+
+        MorePages(
+          appName: "WhatsApp",
+          subtitle: "Dark theme · Chat layout",
+          appIcon: FaIcon(
+            FontAwesomeIcons.whatsapp,
+            size: 16,
+            color: Color(0xff25D366),
+          ),
+          primaryColor: Color(0xff25D366),
+          destinationPage: Placeholder(),
+          gitFolderLink: "https://github.com/Abhinav08bhatt/UI-UX/tree/main/lib/WhatsApp",
+        ),
+
+        MorePages(
+          appName: "YouTube",
+          subtitle: "Dark theme · Video feed",
+          appIcon: FaIcon(
+            FontAwesomeIcons.youtube,
+            size: 16,
+            color: Color(0xffFF0000),
+          ),
+          primaryColor: Color(0xffFF0000),
+          destinationPage: Placeholder(),
+          gitFolderLink: "https://github.com/Abhinav08bhatt/UI-UX/tree/main/lib/YouTube",
+        ),
+
+        MorePages(
+          appName: "Spotify",
+          subtitle: "Dark theme · Music library",
+          appIcon: FaIcon(
+            FontAwesomeIcons.spotify,
+            size: 16,
+            color: Color(0xff1DB954),
+          ),
+          primaryColor: Color(0xff1DB954),
+          destinationPage: Placeholder(),
+          gitFolderLink: "https://github.com/Abhinav08bhatt/UI-UX/tree/main/lib/Spotify",
+        ),
+
+        MorePages(
+          appName: "LinkedIn",
+          subtitle: "Dark theme · Professional feed",
+          appIcon: FaIcon(
+            FontAwesomeIcons.linkedin,
+            size: 16,
+            color: Color(0xff0A66C2),
+          ),
+          primaryColor: Color(0xff0A66C2),
+          destinationPage: Placeholder(),
+          gitFolderLink: "https://github.com/Abhinav08bhatt/UI-UX/tree/main/lib/LinkedIn",
+        ),
+
+      ],
+    );
+  }
+}
+
+class MorePages extends StatelessWidget{
+  final String appName , subtitle;
+  final Icon appIcon;
+  final String gitFolderLink;
+  final Color primaryColor;
+  final Widget destinationPage;
+
+  const MorePages({
+    super.key,
+    required this.appName,
+    required this.subtitle,
+    required this.appIcon,
+    required this.primaryColor,
+    required this.gitFolderLink,
+    required this.destinationPage
+  });
+
+  @override
+  Widget build(BuildContext context) {
+
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => destinationPage,
+          ),
+        );
+      },
+      child: ListTile(
+
+        splashColor: primaryColor,
+
+        title: Row(
+          children: [
+            
+            Text(appName,
+              style: GoogleFonts.roboto(
+                fontSize: 20,
+                fontWeight: FontWeight.w400
+              ),
+            ),
+
+            SizedBox(width: 6),
+
+            appIcon,
+
+          ],
+        ),
+        
+        subtitle: Text(subtitle,
+          style: GoogleFonts.roboto(
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+        
+        trailing: Icon(Icons.arrow_forward_ios_rounded,size: 18,),
+
+      ),
     );
   }
 }
