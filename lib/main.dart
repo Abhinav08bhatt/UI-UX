@@ -77,14 +77,14 @@ class HeroSection extends StatelessWidget {
             style: GoogleFonts.inter(
               color: Color(0xff282828),
               fontWeight: FontWeight.w900,
-              fontSize: 80,
+              fontSize: 94,
               letterSpacing: -2,
               height: 1
             ),
           ),
       
           Text(
-            "DESIGN IN MOTION",
+            "Redesigning Interfaces",
             style: GoogleFonts.inter(
               color: Color(0xff282828).withValues(alpha: 0.50),
               fontWeight: FontWeight.w500,
@@ -136,7 +136,8 @@ class IntroSection extends StatelessWidget {
           SizedBox(height: 8,),
 
             Text(
-              "A place to explore UI and UX.\nTo test ideas.\nTo build better interfaces.",
+              // "A place to explore UI and UX.\nTo test ideas.\nTo build better interfaces.",
+              "A collection of interface redesigns.\nFocused on clarity and usability.\nExploring what could be improved and WHY.",
               style: GoogleFonts.inter(
                 color: Color(0xfff5f5f5).withValues(alpha: 0.50),
                 fontWeight: FontWeight.w500,
@@ -149,7 +150,7 @@ class IntroSection extends StatelessWidget {
             Center(
               child: SizedBox(
                 height: 52,
-                width: 164,
+                width: 174,
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -173,7 +174,7 @@ class IntroSection extends StatelessWidget {
                         children: [
                 
                           Text(
-                            "Let's Begin",
+                            "Enter workspace",
                             style: GoogleFonts.inter(
                               color: Color(0xff282828),
                               fontSize: 16,

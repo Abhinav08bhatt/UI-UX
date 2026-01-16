@@ -1,6 +1,7 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ui_pages/WhatsApp/whatsapp_loading.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
@@ -17,7 +18,7 @@ class HomePage extends StatelessWidget {
           children: [
 
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 4, 8, 24),
+              padding: const EdgeInsets.fromLTRB(16, 4, 8, 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -71,10 +72,10 @@ class HomePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                 child: Text(
-                  "Selected UI Case Studies",                                    // <- A better text here
+                  "Selected UI/UX Redesigns",                                    // <- A better text here
                   style: GoogleFonts.robotoFlex(
                     color: Color(0xff0b0c10),
-                    fontSize: 24,
+                    fontSize: 25,
                     fontWeight: FontWeight.w500,
                     height: 1,
                   ),
@@ -88,7 +89,7 @@ class HomePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
               child: Text(
-                'More UI Projects',
+                'More UI/UX Redesigns',
                 style: GoogleFonts.robotoFlex(
                   fontSize: 24,
                   fontWeight: FontWeight.w500,
@@ -147,7 +148,7 @@ class Top3PagesScroller extends StatelessWidget{
                   thirdColorHex: "#40C351",
                   pageName: "whatsapp",
                   gitFolderName: "github-repo-link",
-                  destinationPage: Placeholder(),
+                  destinationPage: WhatsappLoading(),
                   gitFolderLink: "https://github.com/Abhinav08bhatt/UI-UX/tree/main/lib/WhatsApp",
                 ),
               ),
@@ -530,11 +531,11 @@ class Top3Pages extends StatelessWidget{
                                       padding: EdgeInsets.fromLTRB(0, 8, 0, 8)
                                     ),
                                     child: Text(
-                                      "Open Clone",
+                                      "View Redesign",
                                       style: GoogleFonts.robotoFlex(
                                         fontWeight: FontWeight.w600,
                                         // color: primaryColor,
-                                        color: Color(0xfff5f5f5),
+                                        color: Color.fromARGB(255, 255, 255, 255),
                                         fontSize: 18,
                                       ),
                                     )
