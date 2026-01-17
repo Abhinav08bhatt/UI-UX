@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ui_pages/WhatsApp/whatsapp_home.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
@@ -91,10 +92,12 @@ class WhatsappLoading extends StatelessWidget{
                             aspectRatio: 1/2, 
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(12),
-                              child: Image.network(
-                                'https://picsum.photos/200',
-                                fit: BoxFit.cover,
-                              ),
+
+                              // child: Image.network(
+                              //   'https://picsum.photos/200',
+                              //   fit: BoxFit.cover,
+                              // ),
+
                             ),
                           ),
                         ),
@@ -127,10 +130,12 @@ class WhatsappLoading extends StatelessWidget{
                             aspectRatio: 1/2, 
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(12),
-                              child: Image.network(
-                                'https://picsum.photos/200',
-                                fit: BoxFit.cover,
-                              ),
+
+                              // child: Image.network(
+                              //   'https://picsum.photos/200',
+                              //   fit: BoxFit.cover,
+                              // ),
+
                             ),
                           ),
                         ),
@@ -220,10 +225,12 @@ the chat section...hold for actions (but the actions are hidden) so we will make
                             aspectRatio: 1/2, 
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(12),
-                              child: Image.network(
-                                'https://picsum.photos/200',
-                                fit: BoxFit.cover,
-                              ),
+                              
+                              // child: Image.network(
+                              //   'https://picsum.photos/200',
+                              //   fit: BoxFit.cover,
+                              // ),
+
                             ),
                           ),
                         ),
@@ -258,7 +265,7 @@ the chat section...hold for actions (but the actions are hidden) so we will make
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => Placeholder(),
+                      builder: (_) => WhatsappHome(),
                     ),
                   );
                 }, 
