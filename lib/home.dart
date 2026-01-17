@@ -136,23 +136,22 @@ class Top3PagesScroller extends StatelessWidget{
                   appIcon: FaIcon(
                     FontAwesomeIcons.whatsapp,
                     size: 40,
-                    color: Color(0xff40c351),
+                    color: Color(0xff29BE63),
                   ),
                   font: "Roboto",
                   primaryTextStyle: GoogleFonts.roboto(fontSize: 16),
-                  primaryColor: Color(0xff40C351),
-                  primaryColorHex: "#40C351",
-                  secondaryColor: Color(0xff40C351),
-                  secondaryColorHex: "#40C351",
-                  thirdColor: Color(0xff40C351),
-                  thirdColorHex: "#40C351",
+                  primaryColor: Color(0xff29BE63),
+                  primaryColorHex: "#29BE63",
+                  secondaryColor: Color(0xff1D6A3E),
+                  secondaryColorHex: "#1D6A3E",
+                  thirdColor: Color(0xffDCFFD4),
+                  thirdColorHex: "#DCFFD4",
                   pageName: "whatsapp",
                   gitFolderName: "github-repo-link",
                   destinationPage: WhatsappLoading(),
                   gitFolderLink: "https://github.com/Abhinav08bhatt/UI-UX/tree/main/lib/WhatsApp",
                 ),
               ),
-
 
               const SizedBox(width: 16),
 
@@ -172,10 +171,10 @@ class Top3PagesScroller extends StatelessWidget{
                   ),
                   primaryColor: Color(0xFFFF5A5F),
                   primaryColorHex: "#FF5A5F",
-                  secondaryColor: Color(0xFF767676),
+                  secondaryColor: Color(0xFFF7F7F7),
                   secondaryColorHex: "#767676",
-                  thirdColor: Color(0xFFF7F7F7),
-                  thirdColorHex: "#F7F7F7",
+                  thirdColor: Color(0xFF767676),
+                  thirdColorHex: "#767676",
                   pageName: "airbnb",
                   gitFolderName: "airbnb",
                   destinationPage: Placeholder(),
@@ -432,7 +431,7 @@ class Top3Pages extends StatelessWidget{
                                             decoration: BoxDecoration(
                                               color: Color(0xfff5f5f5),
                                               borderRadius: BorderRadius.circular(8),
-                                              boxShadow: [BoxShadow(color: primaryColor.withValues(alpha: 0.10),blurRadius: 8,spreadRadius: 2)],
+                                              boxShadow: [BoxShadow(color: secondaryColor.withValues(alpha: 0.10),blurRadius: 8,spreadRadius: 2)],
                                             ),
                                             padding: EdgeInsets.fromLTRB(0,0,8,0),
                                             child: Row(
@@ -444,13 +443,13 @@ class Top3Pages extends StatelessWidget{
                                                   child: Container(
                                                     height: 14 , width: 14 , 
                                                     decoration: BoxDecoration(
-                                                      color: primaryColor,
+                                                      color: secondaryColor,
                                                       borderRadius: BorderRadius.circular(10)
                                                     ),
                                                   ),
                                                 ),
                                           
-                                                Text(primaryColorHex,style: GoogleFonts.robotoFlex(fontSize: 14,color: Color(0xff282828).withValues(alpha: 0.80)),),
+                                                Text(secondaryColorHex,style: GoogleFonts.robotoFlex(fontSize: 14,color: Color(0xff282828).withValues(alpha: 0.80)),),
                                                                                 
                                                 SizedBox(width: 4,),
                                           
@@ -467,7 +466,7 @@ class Top3Pages extends StatelessWidget{
                                             decoration: BoxDecoration(
                                               color: Color(0xfff5f5f5),
                                               borderRadius: BorderRadius.circular(8),
-                                              boxShadow: [BoxShadow(color: primaryColor.withValues(alpha: 0.10),blurRadius: 8,spreadRadius: 2)],
+                                              boxShadow: [BoxShadow(color: thirdColor.withValues(alpha: 0.10),blurRadius: 8,spreadRadius: 2)],
                                             ),
                                             padding: EdgeInsets.fromLTRB(0,0,8,0),
                                             child: Row(
@@ -479,13 +478,13 @@ class Top3Pages extends StatelessWidget{
                                                   child: Container(
                                                     height: 14 , width: 14 , 
                                                     decoration: BoxDecoration(
-                                                      color: primaryColor,
+                                                      color: thirdColor,
                                                       borderRadius: BorderRadius.circular(10)
                                                     ),
                                                   ),
                                                 ),
                                           
-                                                Text(primaryColorHex,style: GoogleFonts.robotoFlex(fontSize: 14,color: Color(0xff282828).withValues(alpha: 0.80)),),
+                                                Text(thirdColorHex,style: GoogleFonts.robotoFlex(fontSize: 14,color: Color(0xff282828).withValues(alpha: 0.80)),),
                                                                                 
                                                 SizedBox(width: 4,),
                                           
@@ -534,7 +533,7 @@ class Top3Pages extends StatelessWidget{
                                       "View Redesign",
                                       style: GoogleFonts.robotoFlex(
                                         fontWeight: FontWeight.w600,
-                                        // color: primaryColor,
+                                        // color: secondaryColor,
                                         color: Color.fromARGB(255, 255, 255, 255),
                                         fontSize: 18,
                                       ),

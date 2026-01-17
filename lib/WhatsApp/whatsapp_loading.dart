@@ -3,14 +3,19 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+
 class WhatsappLoading extends StatelessWidget{
   const WhatsappLoading({super.key});
 
   @override
   Widget build(BuildContext context) {
 
+    const Color primaryColor = Color(0xff29BE63);
+    const Color secondaryColor = Color(0xff1D6A3E);
+    const Color thirdColor = Color(0xffDCFFD4);
+
     return Scaffold(
-      backgroundColor: Color(0xffDCF8C6),
+      backgroundColor: thirdColor,
 
       
       body: SafeArea(
@@ -24,7 +29,7 @@ class WhatsappLoading extends StatelessWidget{
                   fontSize: 32,
                   height: 1,
                   letterSpacing: -1,
-                  color:Color(0xff40c351),
+                  color:primaryColor,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -42,101 +47,206 @@ class WhatsappLoading extends StatelessWidget{
                 height: 260,
                 width: double.infinity,
                 child: Card(
-                  color: Color(0xFFFfffff),
-                  elevation: 1,
+                  elevation: 2,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                            
-                      Text("data"),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
 
-                      SizedBox(
-                        height: double.infinity,
-                        width: 180,
-                        child: Column(
-                          children: [
-                            
-                            Expanded(child: SizedBox()),
-                            
-                            Expanded(
-                              flex: 3,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: Color(0xFF1F2C34).withValues(alpha: 0.80),
-                                  borderRadius: BorderRadius.only(
-                                    topRight: Radius.circular(16),
-                                    topLeft: Radius.circular(16),
-                                    bottomRight: Radius.circular(16),
-                                  )
+                        // TEXT SIDE
+                        Expanded(
+                          flex: 1,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                'The Clutter',
+                                style: GoogleFonts.inter(
+                                  fontSize: 24,
+                                  color: secondaryColor,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
+                              SizedBox(height: 8),
+                              Text(
+                                'The non whatsapp things that whatsapp added in recent times.',
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ],
+                          ),
+                        ),
+                    
+                        const SizedBox(width: 12),
+                    
+                        // IMAGE SIDE
+                        Expanded(
+                          flex: 1,
+                          child: AspectRatio(
+                            aspectRatio: 1/2, 
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: Image.network(
+                                'https://picsum.photos/200',
+                                fit: BoxFit.cover,
+                              ),
                             ),
+                          ),
+                        ),
 
-                          ],
-                        )
-                      ),
-                            
-                    ],
+
+                      ],
+                    ),
                   ),
-                ),
-              ),
-          
-          
-              SizedBox(
-                height: 260,
-                width: double.infinity,
-                child: Card(
-                  color: Color(0xFFF6F8F6),
-                  elevation: 1,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                            
-                      Icon(Icons.image),
-                            
-                      Text("data"),
-                            
-                    ],
-                  ),
-                ),
+                )
               ),
 
               SizedBox(
                 height: 260,
                 width: double.infinity,
                 child: Card(
-                  color: Color(0xFFF3FBF4),
-                  elevation: 1,
+                  elevation: 2,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                            
-                      Text("data"),
-                            
-                      Icon(Icons.image),
-                            
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                    
+                        // IMAGE SIDE
+                        Expanded(
+                          flex: 1,
+                          child: AspectRatio(
+                            aspectRatio: 1/2, 
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: Image.network(
+                                'https://picsum.photos/200',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ),
+
+                        const SizedBox(width: 12),
+                        
+                        // TEXT SIDE
+                        Expanded(
+                          flex: 1,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                'The Clutter',
+                                style: GoogleFonts.inter(
+                                  fontSize: 24,
+                                  color: secondaryColor,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+                              Text(
+"""
+the fact that buttons takes to mismatch and unexpected status section while look wired already.
+""",
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ],
+                          ),
+                        ),
+
+                      ],
+                    ),
                   ),
-                ),
+                )
               ),
-        
-          
+
+              SizedBox(
+                height: 260,
+                width: double.infinity,
+                child: Card(
+                  elevation: 2,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+
+                        // TEXT SIDE
+                        Expanded(
+                          flex: 1,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                'The Clutter',
+                                style: GoogleFonts.inter(
+                                  fontSize: 24,
+                                  color: secondaryColor,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+                              Text(
+"""
+the chat section...hold for actions (but the actions are hidden) so we will make it like apple messages...blur with info
+""",
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ],
+                          ),
+                        ),
+                    
+                        const SizedBox(width: 12),
+                    
+                        // IMAGE SIDE
+                        Expanded(
+                          flex: 1,
+                          child: AspectRatio(
+                            aspectRatio: 1/2, 
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: Image.network(
+                                'https://picsum.photos/200',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ),
+
+
+                    
+
+
+
+                      ],
+                    ),
+                  ),
+                )
+              ),
+
+
             ],
           ),
         )
       ),
 
       bottomNavigationBar: BottomAppBar(
-      color: Color(0xffDCF8C6),
+      color: thirdColor,
       height: 80,
 
         child: Row(
@@ -144,24 +254,66 @@ class WhatsappLoading extends StatelessWidget{
 
             Expanded(
               child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => Placeholder(),
+                    ),
+                  );
+                }, 
                 style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(18))
+                  // elevation: 1,
+                  // backgroundColor: Color(0xfff5f5f5),
+                  backgroundColor: primaryColor,
+                  // shadowColor: primaryColor.withValues(alpha: 0.50),
+                  // overlayColor: primaryColor,
+                  overlayColor: Color(0xfff5f5f5),
+                  shape:ContinuousRectangleBorder(borderRadius: BorderRadiusGeometry.circular(24)),
+                  padding: EdgeInsets.fromLTRB(0, 12, 0, 12)
                 ),
-
-                onPressed: () {}, 
-
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Text("Open Redesign",style: TextStyle(fontSize: 20,),),
-                ),
+                child: Text(
+                  "Open Redesign",
+                  style: GoogleFonts.robotoFlex(
+                    fontWeight: FontWeight.w600,
+                    color: thirdColor,
+                    // color: Color.fromARGB(255, 255, 255, 255),
+                    fontSize: 22,
+                  ),
+                )
               )
             ),
+            
+            SizedBox(width: 8,),
 
-            SizedBox(width: 12,),
+            SizedBox(
+              child: GestureDetector(
+                onTap: () async {
+                  await launchUrl(
+                    Uri.parse(
+                      "https://github.com/Abhinav08bhatt/UI-UX/tree/main/lib/WhatsApp",
+                    ),
+                    mode: LaunchMode.externalApplication,
+                  );
+                }, 
+                child: Container(
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    color: Color(0xff1877D7).withValues(alpha: 0.90),
+                    border: Border.all(color: Color(0xff1877D7).withValues(alpha: 0.60)),
+                    borderRadius: BorderRadius.circular(10)
+                  ),
+                  child: FaIcon(
+                    FontAwesomeIcons.code,
+                    color: Color(0xfff5f5f5),
+                    size: 18,
+                  ),
+                ) 
+              )
+            
+            ),
 
-            Padding(padding: EdgeInsetsGeometry.all(8),child: GestureDetector(onTap: (){}, child: FaIcon(FontAwesomeIcons.code),),),
-
-            SizedBox(width: 0,),
+            SizedBox(width: 8,),
 
           ],
         ),
