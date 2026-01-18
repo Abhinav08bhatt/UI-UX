@@ -53,7 +53,55 @@ class WhatsappHome extends StatelessWidget {
         titleSpacing: 0,
 
 // appbar content
-        title: Column(
+        title: AppBarClass(),
+
+      ),
+// appbar end
+
+// body start
+      body: SafeArea(
+        child: GestureDetector(
+          behavior: HitTestBehavior.translucent,
+          onTap: () {
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
+          child: ListView(
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+            children: [
+
+
+
+
+
+
+// section to the end
+              Spacer(),
+
+// archived section
+              ArchivedSection(),
+
+            ],
+          )
+        ),
+// body end
+      ),
+    );
+  }
+}
+
+
+// ----------------------------------------- appbar section -----------------------------------------
+
+// appbar
+class AppBarClass extends StatelessWidget{
+  const AppBarClass({
+    super.key
+  });
+
+  @override
+  Widget build(BuildContext context) {
+
+    return Column(
           children: [
             
 // appbar : Column 1 : logo + actions
@@ -146,10 +194,13 @@ class WhatsappHome extends StatelessWidget {
 // chat-icon action :
                         onPressed: (){}, 
                         
-                        icon: FaIcon(
-                          FontAwesomeIcons.userPlus,
-                          color: whatsappWhite,
-                          size: 18,
+                        icon: Padding(
+                          padding: const EdgeInsets.fromLTRB(8, 6, 6, 8),
+                          child: FaIcon(
+                            FontAwesomeIcons.userPlus,
+                            color: whatsappWhite,
+                            size: 20,
+                          ),
                         ),
                       ),
                     ),
@@ -159,28 +210,11 @@ class WhatsappHome extends StatelessWidget {
               ),
 
           ],
-        ),
-
-      ),
-// appbar end
-
-// body start
-      body: SafeArea(child: ListView(
-        children: [
-
-          
-
-        ],
-      )),
-// body end
-
-    );
+        );
   }
 }
 
-
-
-// search bar
+// search-bar
 class TopSearchBar extends StatelessWidget{
   const TopSearchBar({super.key});
 
@@ -247,5 +281,67 @@ class TopSearchBar extends StatelessWidget{
       ),
     );
 
+  }
+}
+
+// ----------------------------------------- body section -----------------------------------------
+
+
+
+// archived button
+class ArchivedSection extends StatelessWidget{
+  const ArchivedSection({
+    super.key
+  });
+
+  @override
+  Widget build(BuildContext context) {
+
+    return ElevatedButton(
+
+// archived button action :
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => Placeholder(),
+          ),
+        );
+      },
+
+// properties
+      style: ElevatedButton.styleFrom(
+        elevation: 0,
+        backgroundColor: whatsappWhite,
+        overlayColor: secondaryColor,
+        shadowColor: secondaryColor.withValues(alpha: 0.40),
+        shape: BeveledRectangleBorder(),
+        padding: EdgeInsets.fromLTRB(16, 12, 16, 12)
+      ),
+
+      child: Row(
+        children: [
+
+// left space
+          SizedBox(width: 16,),
+      
+// archived icon
+          FaIcon(
+            Icons.archive_outlined,
+            color: whatsappBlack.withValues(alpha: 0.80),
+            size: 20,
+          ),
+      
+          SizedBox(width: 28,),
+      
+// archived text
+          Text(
+            "Archived",
+            style: message.copyWith(fontSize: 17,fontWeight: FontWeight.w600),
+          )
+      
+        ],
+      ),
+    );
   }
 }
