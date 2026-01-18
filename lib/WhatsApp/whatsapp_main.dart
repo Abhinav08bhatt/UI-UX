@@ -1,0 +1,202 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:ui_pages/WhatsApp/whatsapp_groups.dart';
+import 'package:ui_pages/WhatsApp/whatsapp_home.dart';
+import 'package:ui_pages/WhatsApp/whatsapp_logs.dart';
+import 'package:ui_pages/WhatsApp/whatsapp_status.dart';
+    
+// Colors 
+
+Color whatsappWhite = Color(0xfff1f7f6);
+Color whatsappBlack = Color(0xff252525);
+Color primaryColor = Color(0xff29BE63);
+Color secondaryColor = Color(0xff03624c);
+Color thirdColor = Color(0xffDCFFD4);
+
+// Fonts
+
+TextStyle heading = GoogleFonts.inter(
+  fontSize: 18,
+  color: whatsappBlack,
+  fontWeight: FontWeight.w800,
+  letterSpacing: 0
+);
+TextStyle message = GoogleFonts.inter(
+  fontSize: 16,
+  color: whatsappBlack.withValues(alpha: 0.6),
+  fontWeight: FontWeight.w400,
+  letterSpacing: 0
+);
+TextStyle chat = GoogleFonts.inter(
+  fontSize: 18,
+  color: whatsappBlack,
+  fontWeight: FontWeight.w500,
+  letterSpacing: 0
+);
+
+
+
+class WhatsappMain extends StatefulWidget{
+  const WhatsappMain({super.key});
+
+  @override
+  State<WhatsappMain> createState() => _WhatsappMain();
+}
+
+
+class _WhatsappMain extends State<WhatsappMain>{
+
+// page index for navigation
+  int index = 0;  
+
+  @override
+  Widget build(BuildContext context) {
+
+// pages
+    final pages = const [
+      WhatsappHome(),
+      WhatsappStatus(),
+      WhatsappGroups(),
+      WhatsappLogs()
+    ];
+
+    return Scaffold(
+
+// background color
+      backgroundColor: whatsappWhite,
+
+// body
+      body: pages[index],
+
+// body end
+
+
+// navigation-bar
+      bottomNavigationBar: Container(
+        height: 68,
+        decoration: BoxDecoration(color: whatsappWhite),
+        child: BottomNavigationBar(
+          currentIndex: index,
+          
+          onTap: (value){
+            setState(() {
+              index = value;
+            });
+          },
+
+          
+          selectedItemColor: secondaryColor,
+          unselectedItemColor: whatsappBlack.withValues(alpha: 0.60),
+
+          iconSize: 28,
+
+          showSelectedLabels: true,
+          showUnselectedLabels: true,
+
+          items: [
+            
+            BottomNavigationBarItem(
+              icon: Icon(FontAwesomeIcons.house),
+              label: "Home", 
+            ),
+        
+            BottomNavigationBarItem(
+              icon: Icon(Icons.update),
+              label: "Status"
+            ),
+        
+            BottomNavigationBarItem(
+              icon: Icon(Icons.group),
+              label: "Groups"
+            ),
+        
+            BottomNavigationBarItem(
+              icon: Icon(Icons.call),
+              label: "Logs"
+            ),
+
+          ],
+          
+        ),
+      ),
+// navigation-bar end
+ 
+
+    );
+
+  }
+}
+
+
+
+
+// search bar
+class TopSearchBar extends StatelessWidget{
+  const TopSearchBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+
+    return Expanded(
+      child: TextField(
+
+// input text style
+        style: chat.copyWith(fontWeight: FontWeight.w400),
+
+// cursor style
+        cursorColor: primaryColor,
+
+// input filed decoration
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: whatsappWhite,
+          contentPadding: EdgeInsets.fromLTRB(20, 16, 20, 16),
+
+// label text
+          label: Text(
+            "Search",
+            style: message.copyWith(fontWeight: FontWeight.w500,color: whatsappBlack),
+          ),
+
+// hint text 
+          hint: Text(
+            "Search for contact or file",
+            style: message.copyWith(fontSize: 16),
+          ),
+
+// non focus border
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(32),
+            borderSide: BorderSide(
+              color:  Colors.black26,
+              width: 1.5,
+            )
+          ),
+      
+// focus border
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(32),
+            borderSide: BorderSide(
+              color: primaryColor,
+              width: 1.5,
+            )
+          ),
+
+// icon
+          prefixIcon: Padding(
+            padding: const EdgeInsets.fromLTRB(10,10,2,10),
+            child: Icon(
+              Icons.search,
+              color: Colors.black54,
+              size:28,
+            ),
+          ),
+
+        ),
+
+      ),
+    );
+
+  }
+}

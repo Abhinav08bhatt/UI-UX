@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ui_pages/WhatsApp/whatsapp_home.dart';
+import 'package:ui_pages/WhatsApp/whatsapp_main.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
@@ -265,7 +265,7 @@ the chat section...hold for actions (but the actions are hidden) so we will make
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => WhatsappHome(),
+                      builder: (_) => WhatsappMain(),
                     ),
                   );
                 }, 
