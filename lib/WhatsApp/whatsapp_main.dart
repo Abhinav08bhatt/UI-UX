@@ -7,7 +7,6 @@ import 'package:ui_pages/WhatsApp/whatsapp_logs.dart';
 import 'package:ui_pages/WhatsApp/whatsapp_status.dart';
     
 // Colors 
-
 Color whatsappWhite = Color(0xfff1f7f6);
 Color whatsappBlack = Color(0xff252525);
 Color primaryColor = Color(0xff29BE63);
@@ -15,7 +14,6 @@ Color secondaryColor = Color(0xff03624c);
 Color thirdColor = Color(0xffDCFFD4);
 
 // Fonts
-
 TextStyle heading = GoogleFonts.inter(
   fontSize: 18,
   color: whatsappBlack,
@@ -36,7 +34,7 @@ TextStyle chat = GoogleFonts.inter(
 );
 
 
-
+// the stateful widget for variable indexing
 class WhatsappMain extends StatefulWidget{
   const WhatsappMain({super.key});
 
@@ -44,7 +42,7 @@ class WhatsappMain extends StatefulWidget{
   State<WhatsappMain> createState() => _WhatsappMain();
 }
 
-
+// extending the stateful widget
 class _WhatsappMain extends State<WhatsappMain>{
 
 // page index for navigation
@@ -53,7 +51,7 @@ class _WhatsappMain extends State<WhatsappMain>{
   @override
   Widget build(BuildContext context) {
 
-// pages
+// navigation pages
     final pages = const [
       WhatsappHome(),
       WhatsappStatus(),
@@ -68,56 +66,66 @@ class _WhatsappMain extends State<WhatsappMain>{
 
 // body
       body: pages[index],
-
 // body end
 
+// navigation-bar start
+      bottomNavigationBar: SizedBox(
 
-// navigation-bar
-      bottomNavigationBar: Container(
+// navigation-bar height
         height: 68,
-        decoration: BoxDecoration(color: whatsappWhite),
         child: BottomNavigationBar(
-          currentIndex: index,
           
+          currentIndex: index,
+
+// changing index value depending on the page
           onTap: (value){
             setState(() {
               index = value;
             });
           },
 
-          
-          selectedItemColor: secondaryColor,
-          unselectedItemColor: whatsappBlack.withValues(alpha: 0.60),
-
+// navigation bar properties :
           iconSize: 28,
-
           showSelectedLabels: true,
+          selectedItemColor: secondaryColor,
+          selectedLabelStyle: chat.copyWith(fontSize: 16),
           showUnselectedLabels: true,
+          unselectedItemColor: whatsappBlack.withValues(alpha: 0.50),
+          unselectedLabelStyle: chat.copyWith(fontSize: 16),
 
           items: [
-            
+
+// home button
             BottomNavigationBarItem(
               icon: Icon(FontAwesomeIcons.house),
-              label: "Home", 
+                label: "Home",
+                backgroundColor: whatsappWhite
             ),
         
+// status/update button
             BottomNavigationBarItem(
-              icon: Icon(Icons.update),
-              label: "Status"
+              icon: Icon(Icons.radio_button_checked_rounded),
+              label: "Status",
+              backgroundColor: whatsappWhite
             ),
         
+// groups button
             BottomNavigationBarItem(
               icon: Icon(Icons.group),
-              label: "Groups"
+              label: "Groups",
+              backgroundColor: whatsappWhite
             ),
         
+// call button
             BottomNavigationBarItem(
               icon: Icon(Icons.call),
-              label: "Logs"
+              label: "Calls",
+              backgroundColor: whatsappWhite
             ),
 
           ],
           
+// navigation item end
         ),
       ),
 // navigation-bar end
@@ -128,75 +136,3 @@ class _WhatsappMain extends State<WhatsappMain>{
   }
 }
 
-
-
-
-// search bar
-class TopSearchBar extends StatelessWidget{
-  const TopSearchBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-
-    return Expanded(
-      child: TextField(
-
-// input text style
-        style: chat.copyWith(fontWeight: FontWeight.w400),
-
-// cursor style
-        cursorColor: primaryColor,
-
-// input filed decoration
-        decoration: InputDecoration(
-          filled: true,
-          fillColor: whatsappWhite,
-          contentPadding: EdgeInsets.fromLTRB(20, 16, 20, 16),
-
-// label text
-          label: Text(
-            "Search",
-            style: message.copyWith(fontWeight: FontWeight.w500,color: whatsappBlack),
-          ),
-
-// hint text 
-          hint: Text(
-            "Search for contact or file",
-            style: message.copyWith(fontSize: 16),
-          ),
-
-// non focus border
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(32),
-            borderSide: BorderSide(
-              color:  Colors.black26,
-              width: 1.5,
-            )
-          ),
-      
-// focus border
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(32),
-            borderSide: BorderSide(
-              color: primaryColor,
-              width: 1.5,
-            )
-          ),
-
-// icon
-          prefixIcon: Padding(
-            padding: const EdgeInsets.fromLTRB(10,10,2,10),
-            child: Icon(
-              Icons.search,
-              color: Colors.black54,
-              size:28,
-            ),
-          ),
-
-        ),
-
-      ),
-    );
-
-  }
-}
