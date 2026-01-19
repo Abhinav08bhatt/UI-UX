@@ -527,7 +527,7 @@ class Top3Pages extends StatelessWidget{
                                       // overlayColor: primaryColor,
                                       overlayColor: Color(0xfff5f5f5),
                                       shape:ContinuousRectangleBorder(borderRadius: BorderRadiusGeometry.circular(24)),
-                                      padding: EdgeInsets.fromLTRB(0, 8, 0, 8)
+                                      padding: EdgeInsets.fromLTRB(0, 14, 0, 14)
                                     ),
                                     child: Text(
                                       "View Redesign",
@@ -554,7 +554,7 @@ class Top3Pages extends StatelessWidget{
                                       );
                                     }, 
                                     child: Container(
-                                      padding: EdgeInsets.all(10),
+                                      padding: EdgeInsets.all(14),
                                       decoration: BoxDecoration(
                                         color: Color(0xff1877D7).withValues(alpha: 0.90),
                                         border: Border.all(color: Color(0xff1877D7).withValues(alpha: 0.60)),
