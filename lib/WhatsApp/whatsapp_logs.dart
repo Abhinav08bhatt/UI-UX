@@ -71,87 +71,83 @@ class WhatsappLogs extends StatelessWidget {
 
               SizedBox(height: 12,),
 
-              Padding(
-                padding: const EdgeInsets.fromLTRB(12,8,0,8),
-                child: Row(
-                  children: [
+              // Padding(
+              //   padding: const EdgeInsets.fromLTRB(12,8,0,8),
+              //   child: Row(
+              //     children: [
                     
-                    Icon(
-                      Icons.favorite_rounded,
-                      size: 20,
-                      color: primaryColor,
-                    ),
+              //       Icon(
+              //         Icons.favorite_rounded,
+              //         size: 20,
+              //         color: primaryColor,
+              //       ),
 
-                    SizedBox(width: 8,),
+              //       SizedBox(width: 8,),
 
-                    Text(
-                      "Favorites",
-                      style: chat,
-                    ),
+              //       Text(
+              //         "Favorites",
+              //         style: chat,
+              //       ),
 
-                  ],
-                ),
-              ),
-              Divider(
-                indent: 8,
-                endIndent: 8,
-                color: whatsappBlack.withValues(alpha: 0.20),
-              ),
+              //     ],
+              //   ),
+              // ),
+              FavoritesSection(),
 
-              Padding(
-                padding: const EdgeInsets.fromLTRB(12,8,0,8),
-                child: Row(
-                  children: [
+              // Padding(
+              //   padding: const EdgeInsets.fromLTRB(12,8,0,8),
+              //   child: Row(
+              //     children: [
                     
-                    Icon(
-                      Icons.contacts,
-                      size: 20,
-                      color: primaryColor,
-                    ),
+              //       Icon(
+              //         Icons.contacts,
+              //         size: 20,
+              //         color: primaryColor,
+              //       ),
 
-                    SizedBox(width: 8,),
+              //       SizedBox(width: 8,),
 
-                    Text(
-                      "Contacts",
-                      style: chat,
-                    ),
+              //       Text(
+              //         "Contacts",
+              //         style: chat,
+              //       ),
 
-                  ],
-                ),
+              //     ],
+              //   ),
+              // ),
+              ContactsSection(
+                title: "Contacts",
+                contacts: [
+                  ContactData(name: "Avi"),
+                  ContactData(name: "Rohit"),
+                  ContactData(name: "Neha"),
+                  ContactData(name: "Sara"),
+                  ContactData(name: "Karan"),
+                ],
               ),
-              Divider(
-                indent: 8,
-                endIndent: 8,
-                color: whatsappBlack.withValues(alpha: 0.20),
-              ),
 
-
-              Padding(
-                padding: const EdgeInsets.fromLTRB(12,8,0,8),
-                child: Row(
-                  children: [
+              // Padding(
+              //   padding: const EdgeInsets.fromLTRB(12,8,0,8),
+              //   child: Row(
+              //     children: [
                     
-                    Icon(
-                      Icons.history,
-                      size: 20,
-                      color: primaryColor,
-                    ),
+              //       Icon(
+              //         Icons.history,
+              //         size: 20,
+              //         color: primaryColor,
+              //       ),
 
-                    SizedBox(width: 8,),
+              //       SizedBox(width: 8,),
 
-                    Text(
-                      "History",
-                      style: chat,
-                    ),
+              //       Text(
+              //         "History",
+              //         style: chat,
+              //       ),
 
-                  ],
-                ),
-              ),
-              Divider(
-                indent: 8,
-                endIndent: 8,
-                color: whatsappBlack.withValues(alpha: 0.20),
-              ),
+              //     ],
+              //   ),
+              // ),
+              HistorySection(),
 
             ],
           )
@@ -204,22 +200,6 @@ class AppBarClass extends StatelessWidget{
                 Row(
                   children: [
 
-// appbar : Column 1 : action 1 : camera
-                    IconButton(
-
-// camera action : 
-                      onPressed: () {}, 
-
-                      padding: EdgeInsets.all(12),
-                      highlightColor: thirdColor,
-                    
-                      icon: FaIcon(
-                        FontAwesomeIcons.camera,
-                        color: Colors.black87,
-                        size: 22,
-                      )
-                    ),
-
 // appbar : Column 1 : action 1 : menu
                     IconButton(
 
@@ -245,7 +225,7 @@ class AppBarClass extends StatelessWidget{
 
               SizedBox(height: 10,),
 
-// appbar : Column 2 : search-bar + chat-icon 
+// appbar : Column 2 : search-bar + call-list + dial-pad
               Padding(
                 padding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
                 child: Row(
@@ -256,7 +236,7 @@ class AppBarClass extends StatelessWidget{
                 
                     SizedBox(width: 8,),
 
-                    // appbar : Column 2 : chat-icon
+// appbar : Column 2 : call-list
                     Container(
                       height: 54,
                       width: 54,
@@ -266,7 +246,33 @@ class AppBarClass extends StatelessWidget{
                       ),
                       child: IconButton(
                         
-// chat-icon action :
+// call-list action :
+                        onPressed: (){}, 
+                        
+                        icon: Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                          child: FaIcon(
+                            Icons.call,
+                            color: whatsappWhite,
+                            size: 26,
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    SizedBox(width: 8,),
+                    
+// appbar : Column 2 : dial-pad
+                    Container(
+                      height: 54,
+                      width: 54,
+                      decoration: BoxDecoration(
+                        color: primaryColor,
+                        borderRadius: BorderRadius.circular(38),
+                      ),
+                      child: IconButton(
+                        
+// dial-pad action :
                         onPressed: (){}, 
                         
                         icon: Padding(
@@ -280,31 +286,6 @@ class AppBarClass extends StatelessWidget{
                       ),
                     ),
                 
-                    SizedBox(width: 6,),
-                    
-// appbar : Column 2 : chat-icon
-                    Container(
-                      height: 54,
-                      width: 54,
-                      decoration: BoxDecoration(
-                        color: primaryColor,
-                        borderRadius: BorderRadius.circular(38),
-                      ),
-                      child: IconButton(
-                        
-// chat-icon action :
-                        onPressed: (){}, 
-                        
-                        icon: Padding(
-                          padding: const EdgeInsets.fromLTRB(8, 5, 6, 8),
-                          child: FaIcon(
-                            Icons.group_add_rounded,
-                            color: whatsappWhite,
-                            size: 26,
-                          ),
-                        ),
-                      ),
-                    ),
 
                  
                   ],
@@ -387,66 +368,181 @@ class TopSearchBar extends StatelessWidget{
 }
 
 
-
-
 // ----------------------------------------- body section -----------------------------------------
 
+// favorite section
+class FavoritesSection extends StatelessWidget {
+  const FavoritesSection({super.key});
 
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox(height: 80);
+  }
+}
 
-// archived button
-class ArchivedSection extends StatelessWidget{
-  const ArchivedSection({
-    super.key
+// contacts section
+class ContactData {
+  final String name;
+  final ImageProvider? profilePic;
+
+  ContactData({
+    required this.name,
+    this.profilePic,
+  });
+}
+
+class ContactsSection extends StatelessWidget {
+  final String title;
+  final int maxRows;
+  final List<ContactData> contacts;
+
+  const ContactsSection({
+    super.key,
+    required this.title,
+    required this.contacts,
+    this.maxRows = 3,
   });
 
   @override
   Widget build(BuildContext context) {
+    final double width = MediaQuery.of(context).size.width;
+    final int crossAxisCount = width >= 420 ? 5 : 4;
+    final int maxItems = crossAxisCount * maxRows;
+    final int itemCount = contacts.length > maxItems
+        ? maxItems
+        : contacts.length;
 
-    return ElevatedButton(
 
-// archived button action :
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (_) => Placeholder(),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+
+        // title row
+        Padding(
+          padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
+          child: Row(
+            children: [
+              Icon(
+                Icons.contacts,
+                size: 20,
+                color: primaryColor,
+              ),
+              const SizedBox(width: 8),
+              Text(
+                title,
+                style: chat,
+              ),
+            ],
           ),
-        );
+        ),
+
+        // responsive grid (NO fixed rows)
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          child: GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: itemCount,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: crossAxisCount,
+              crossAxisSpacing: 12,
+              mainAxisSpacing: 12,
+            ),
+            itemBuilder: (context, index) {
+              final contact = contacts[index];
+
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  CircleAvatar(
+                    radius: 26,
+                    backgroundColor: thirdColor,
+                    backgroundImage: contact.profilePic,
+                    child: contact.profilePic == null
+                        ? Icon(
+                            FontAwesomeIcons.user,
+                            size: 18,
+                            color: secondaryColor,
+                          )
+                        : null,
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    contact.name,
+                    style: message,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              );
+            },
+          ),
+        ),
+
+        Padding(
+          padding: const EdgeInsets.only(top: 12),
+          child: Divider(
+            indent: 8,
+            endIndent: 8,
+            color: whatsappBlack.withValues(alpha: 0.20),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class ContactCallTile extends StatelessWidget {
+  final String name;
+  final ImageProvider? profilePic;
+
+  const ContactCallTile({
+    super.key,
+    required this.name,
+    this.profilePic,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        // call logic later
       },
-
-// properties
-      style: ElevatedButton.styleFrom(
-        elevation: 0,
-        backgroundColor: whatsappWhite,
-        overlayColor: secondaryColor,
-        shadowColor: secondaryColor.withValues(alpha: 0.40),
-        shape: BeveledRectangleBorder(),
-        padding: EdgeInsets.fromLTRB(16, 12, 16, 12)
-      ),
-
-      child: Row(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-
-// left space
-          SizedBox(width: 16,),
-      
-// archived icon
-          FaIcon(
-            Icons.archive_outlined,
-            color: whatsappBlack.withValues(alpha: 0.80),
-            size: 20,
+          CircleAvatar(
+            radius: 26,
+            backgroundColor: thirdColor,
+            backgroundImage: profilePic,
+            child: profilePic == null
+                ? Icon(
+                    FontAwesomeIcons.user,
+                    size: 18,
+                    color: secondaryColor,
+                  )
+                : null,
           ),
-      
-          SizedBox(width: 28,),
-      
-// archived text
+          const SizedBox(height: 4),
           Text(
-            "Archived Groups",
-            style: message.copyWith(fontSize: 17,fontWeight: FontWeight.w600),
-          )
-      
+            name,
+            style: message,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
         ],
       ),
     );
+  }
+}
+
+
+// history section
+class HistorySection extends StatelessWidget {
+  const HistorySection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox(height: 240);
   }
 }
