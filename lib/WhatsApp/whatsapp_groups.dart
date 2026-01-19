@@ -84,7 +84,9 @@ class WhatsappGroups extends StatelessWidget {
           )
         ),
 // body end
+
       ),
+
     );
   }
 }
@@ -182,7 +184,7 @@ class AppBarClass extends StatelessWidget{
                 
                     SizedBox(width: 8,),
                 
-// appbar : Column 2 : chat-icon
+// appbar : Column 2 : create-group
                     Container(
                       height: 54,
                       width: 54,
@@ -192,7 +194,7 @@ class AppBarClass extends StatelessWidget{
                       ),
                       child: IconButton(
                         
-// chat-icon action :
+// create-group action :
                         onPressed: (){}, 
                         
                         icon: Padding(

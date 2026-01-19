@@ -85,10 +85,10 @@ class _WhatsappMain extends State<WhatsappMain>{
           },
 
 // navigation bar properties :
-          iconSize: 28,
+          iconSize: 24,
           showSelectedLabels: true,
           selectedItemColor: secondaryColor,
-          selectedLabelStyle: chat.copyWith(fontSize: 16),
+          selectedLabelStyle: chat.copyWith(fontSize: 18),
           showUnselectedLabels: true,
           unselectedItemColor: whatsappBlack.withValues(alpha: 0.50),
           unselectedLabelStyle: chat.copyWith(fontSize: 16),

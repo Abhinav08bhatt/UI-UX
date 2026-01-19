@@ -277,7 +277,7 @@ the chat section...hold for actions (but the actions are hidden) so we will make
                   // overlayColor: primaryColor,
                   overlayColor: Color(0xfff5f5f5),
                   shape:ContinuousRectangleBorder(borderRadius: BorderRadiusGeometry.circular(24)),
-                  padding: EdgeInsets.fromLTRB(0, 12, 0, 12)
+                  padding: EdgeInsets.fromLTRB(0, 16, 0, 16)
                 ),
                 child: Text(
                   "Open Redesign",
@@ -285,7 +285,7 @@ the chat section...hold for actions (but the actions are hidden) so we will make
                     fontWeight: FontWeight.w600,
                     color: thirdColor,
                     // color: Color.fromARGB(255, 255, 255, 255),
-                    fontSize: 22,
+                    fontSize: 20,
                   ),
                 )
               )
@@ -304,7 +304,7 @@ the chat section...hold for actions (but the actions are hidden) so we will make
                   );
                 }, 
                 child: Container(
-                  padding: EdgeInsets.all(15),
+                  padding: EdgeInsets.all(17),
                   decoration: BoxDecoration(
                     color: Color(0xff1877D7).withValues(alpha: 0.90),
                     border: Border.all(color: Color(0xff1877D7).withValues(alpha: 0.60)),
