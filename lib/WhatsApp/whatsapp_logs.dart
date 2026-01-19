@@ -71,50 +71,8 @@ class WhatsappLogs extends StatelessWidget {
 
               SizedBox(height: 12,),
 
-              // Padding(
-              //   padding: const EdgeInsets.fromLTRB(12,8,0,8),
-              //   child: Row(
-              //     children: [
-                    
-              //       Icon(
-              //         Icons.favorite_rounded,
-              //         size: 20,
-              //         color: primaryColor,
-              //       ),
-
-              //       SizedBox(width: 8,),
-
-              //       Text(
-              //         "Favorites",
-              //         style: chat,
-              //       ),
-
-              //     ],
-              //   ),
-              // ),
               FavoritesSection(),
 
-              // Padding(
-              //   padding: const EdgeInsets.fromLTRB(12,8,0,8),
-              //   child: Row(
-              //     children: [
-                    
-              //       Icon(
-              //         Icons.contacts,
-              //         size: 20,
-              //         color: primaryColor,
-              //       ),
-
-              //       SizedBox(width: 8,),
-
-              //       Text(
-              //         "Contacts",
-              //         style: chat,
-              //       ),
-
-              //     ],
-              //   ),
-              // ),
               ContactsSection(
                 title: "Contacts",
                 contacts: [
@@ -126,27 +84,6 @@ class WhatsappLogs extends StatelessWidget {
                 ],
               ),
 
-              // Padding(
-              //   padding: const EdgeInsets.fromLTRB(12,8,0,8),
-              //   child: Row(
-              //     children: [
-                    
-              //       Icon(
-              //         Icons.history,
-              //         size: 20,
-              //         color: primaryColor,
-              //       ),
-
-              //       SizedBox(width: 8,),
-
-              //       Text(
-              //         "History",
-              //         style: chat,
-              //       ),
-
-              //     ],
-              //   ),
-              // ),
               HistorySection(),
 
             ],
