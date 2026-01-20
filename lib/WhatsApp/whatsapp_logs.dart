@@ -76,11 +76,17 @@ class WhatsappLogs extends StatelessWidget {
               ContactsSection(
                 title: "Contacts",
                 contacts: [
-                  ContactData(name: "Avi"),
                   ContactData(profilePic: AssetImage("assets/images/profile_pic_1.jpg"),name: "Rohit"),
+                  ContactData(name: "Avi"),
+                  ContactData(profilePic: AssetImage("assets/images/profile_pic_2.jpg"),name: "Rohit"),
                   ContactData(name: "Neha"),
+                  ContactData(profilePic: AssetImage("assets/images/profile_pic_3.jpg"),name: "Rohit"),
+                  ContactData(profilePic: AssetImage("assets/images/profile_pic_4.jpg"),name: "Rohit"),
+                  ContactData(profilePic: AssetImage("assets/images/profile_pic_5.jpg"),name: "Rohit"),
                   ContactData(name: "Sara"),
+                  ContactData(profilePic: AssetImage("assets/images/profile_pic_1.jpg"),name: "Rohit"),
                   ContactData(name: "Karan"),
+                  ContactData(profilePic: AssetImage("assets/images/profile_pic_2.jpg"),name: "Mohit"),
                 ],
               ),
 
@@ -612,6 +618,7 @@ class ContactsListPage extends StatelessWidget {
       ),
       body: ListView.separated(
         itemCount: contacts.length,
+        // ignore: unnecessary_underscores
         separatorBuilder: (_, __) => const Divider(height: 1),
         itemBuilder: (context, index) {
           final contact = contacts[index];
