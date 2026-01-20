@@ -71,8 +71,20 @@ class WhatsappLogs extends StatelessWidget {
 
               SizedBox(height: 12,),
 
-              FavoritesSection(),
+// Favorites section :
+              FavoritesSection(
+                title: "Favorites",
+                favorites: [
+                  FavoriteData(profilePic: AssetImage("assets/images/profile_pic_2.jpg"),name: "Rohit"),
+                  FavoriteData(name: "Avi"),
+                  FavoriteData(profilePic: AssetImage("assets/images/profile_pic_1.jpg"),name: "Rohit"),
+                  FavoriteData(name: "Neha"),
+                  FavoriteData(name: "Karan"),
+                  FavoriteData(profilePic: AssetImage("assets/images/profile_pic_4.jpg"),name: "Rohit"),
+                ],
+              ),
 
+// Contacts section :
               ContactsSection(
                 title: "Contacts",
                 contacts: [
@@ -87,10 +99,22 @@ class WhatsappLogs extends StatelessWidget {
                   ContactData(profilePic: AssetImage("assets/images/profile_pic_1.jpg"),name: "Rohit"),
                   ContactData(name: "Karan"),
                   ContactData(profilePic: AssetImage("assets/images/profile_pic_2.jpg"),name: "Mohit"),
+                  ContactData(profilePic: AssetImage("assets/images/profile_pic_4.jpg"),name: "Rohit"),
+                  ContactData(name: "Karan"),
                 ],
               ),
 
-              HistorySection(),
+
+// History section :
+              HistoryCallTile(
+                name: "Rohit",
+                lastCall: "Yesterday, 8:30 PM",
+                callCase: CallCase.incoming,
+                callStatus: CallStatus.missed,
+                callType: CallType.audio,
+                profilePic: AssetImage("assets/images/profile_pic_1.jpg"),
+              ),
+
 
             ],
           )
@@ -314,14 +338,255 @@ class TopSearchBar extends StatelessWidget{
 // ----------------------------------------- body section -----------------------------------------
 
 // favorite section
-class FavoritesSection extends StatelessWidget {
-  const FavoritesSection({super.key});
+
+// creating contacts for the favorites section
+class FavoriteData {
+// the data passed : 
+  final String name;
+  final ImageProvider? profilePic;
+
+  const FavoriteData({
+// the data passed : name (req)
+    required this.name,
+// the data passed : profile-pic
+    this.profilePic,
+  });
+}
+
+// creating tiles
+class FavoriteCallTile extends StatelessWidget {
+// needed : 
+  final String name;
+  final ImageProvider? profilePic;
+
+  const FavoriteCallTile({
+    super.key,
+    required this.name,
+    this.profilePic,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(height: 80);
+    return GestureDetector(
+// call logic 
+      onTap: () {},
+
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+
+// tile : profile-pic
+          CircleAvatar(
+            radius: 26,
+            backgroundColor: thirdColor,
+            backgroundImage: profilePic,
+            child: profilePic == null
+                ? Icon(
+                    FontAwesomeIcons.user,
+                    size: 18,
+                    color: secondaryColor,
+                  )
+                : null,
+          ),
+
+          const SizedBox(height: 4),
+
+// tile : name
+          Text(
+            name,
+            style: message,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ],
+      ),
+    );
   }
 }
+
+
+// building the tile section 
+class FavoritesSection extends StatelessWidget {
+// needed
+  final String title;
+  final int maxRows;
+  final List<FavoriteData> favorites;
+
+  const FavoritesSection({
+    super.key,
+    required this.title,
+    required this.favorites,
+// useful
+    this.maxRows = 1,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+
+// size of the screen
+    final double width = MediaQuery.of(context).size.width;
+// number of columns
+    final int crossAxisCount = width >= 420 ? 5 : 4;
+// max number of items
+    final int maxItems = crossAxisCount * maxRows;
+// condition to show more
+    final bool showMore = favorites.length > maxItems;
+// number of items
+    final int itemCount =
+        favorites.length > maxItems ? maxItems : favorites.length;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+
+// title row : Favorites title + show more button (when needed)
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+          child: Row(
+            children: [
+
+// title row : Favorites tile : icon
+              Icon(
+                Icons.favorite,
+                size: 20,
+                color: primaryColor,
+              ),
+              
+              const SizedBox(width: 8),
+            
+// title row : Favorites tile : title
+              Text(title, style: chat),
+              
+              const Spacer(),
+
+// title row : show more button : 
+              if (showMore)
+                GestureDetector(
+                    
+// title row : show more button logic 
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => FavoritesListPage(
+                          title: title,
+                          favorites: favorites, 
+                        ),
+                      ),
+                    );
+                  },
+
+// title row : show more button : child : text + icon
+                  child: Row(
+                    children: [
+
+// title row : show more button : child : text 
+                      Text(
+                        "Show More",
+                        style: chat.copyWith(fontSize: 14),
+                      ),
+                      
+                      const SizedBox(width: 4),
+                      
+// title row : show more button : child : icon
+                      Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        size: 16,
+                        color: secondaryColor,
+                      ),
+                    ],
+                  ),
+                ),
+            ],
+          ),
+        ),
+
+// responsive grid section
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+          child: GridView.builder(
+
+// grid properties
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: itemCount,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: crossAxisCount,
+              crossAxisSpacing: 12,
+              mainAxisSpacing: 12,
+            ),
+
+// building tiles buttons : profile-pic + name
+            itemBuilder: (context, index) {
+              final contact = favorites[index];
+
+// each tile clickable 
+              return ElevatedButton(
+
+// call logic
+                onPressed: () {},
+
+// button properties
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: whatsappWhite,
+                  elevation: 0,
+                  padding: EdgeInsets.zero,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(8)),
+                  ),
+                ),
+
+// building tiles : profile-pic + name
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+
+// building tiles : profile-pic 
+                    CircleAvatar(
+                      radius: 26,
+                      backgroundColor: thirdColor,
+                      backgroundImage: contact.profilePic,
+                      child: contact.profilePic == null
+                          ? Icon(
+                              FontAwesomeIcons.user,
+                              size: 18,
+                              color: secondaryColor,
+                            )
+                          : null,
+                    ),
+
+                    const SizedBox(height: 4),
+                    
+// building tiles : name
+                    Text(
+                      contact.name,
+                      style: message.copyWith(color: whatsappBlack),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ),
+
+// content divider
+        Padding(
+          padding: const EdgeInsets.only(top: 12),
+          child: Divider(
+            indent: 8,
+            endIndent: 8,
+            color: whatsappBlack.withValues(alpha: 0.20),
+          ),
+        ),
+
+      ],
+    );
+  }
+}
+
+
 
 // contacts section
 
@@ -390,8 +655,7 @@ class ContactCallTile extends StatelessWidget {
 }
 
 // building the tile section 
-class ContactsSection extends StatelessWidget {
-  
+class ContactsSection extends StatelessWidget { 
 // needed
   final String title;
   final int maxRows;
@@ -582,13 +846,96 @@ class ContactsSection extends StatelessWidget {
 }
 
 
+enum CallCase {
+  incoming,
+  outgoing,
+}
+enum CallStatus {
+  accepted,
+  missed,
+}
+enum CallType {
+  audio,
+  video,
+}
+
 // history section
-class HistorySection extends StatelessWidget {
-  const HistorySection({super.key});
+class HistoryCallTile extends StatelessWidget {
+// needed
+  final String name;
+  final String lastCall;
+  final CallCase callCase;
+  final CallStatus callStatus;
+  final CallType callType;
+  final ImageProvider? profilePic;
+
+  const HistoryCallTile({
+    super.key,
+    required this.name,
+    required this.lastCall,
+    required this.callCase,
+    required this.callStatus,
+    required this.callType,
+    this.profilePic,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(height: 240);
+    return ListTile(
+
+// call logic
+      onTap: () {},
+      onLongPress: () {},
+
+      contentPadding: const EdgeInsets.fromLTRB(14, 4, 14, 4),
+      splashColor: thirdColor,
+
+// Profile-pic
+      leading: CircleAvatar(
+        radius: 20,
+        backgroundColor: thirdColor,
+        backgroundImage: profilePic,
+        child: profilePic == null
+            ? Icon(Icons.person, color: secondaryColor)
+            : null,
+      ),
+
+// Name
+      title: Text(
+        name,
+        style: chat,
+      ),
+
+// Call direction + time
+      subtitle: Row(
+        children: [
+
+          Icon(
+            callCase == CallCase.incoming
+                ? Icons.call_received
+                : Icons.call_made,
+            size: 16,
+            color: callStatus == CallStatus.missed
+                ? Colors.red
+                : primaryColor,
+          ),
+          const SizedBox(width: 6),
+          
+          Text(
+            lastCall,
+            style: message,
+          ),
+        ],
+      ),
+
+// Call type icon
+      trailing: Icon(
+        callType == CallType.audio
+            ? Icons.call
+            : Icons.videocam,
+        color: primaryColor,
+      ),
+    );
   }
 }
 
@@ -599,8 +946,9 @@ class HistorySection extends StatelessWidget {
 // ------------------------------------- Body Navigation Pages -------------------------------------
 
 
-// 
+// contacts page section
 class ContactsListPage extends StatelessWidget {
+// needed
   final String title;
   final List<ContactData> contacts;
 
@@ -613,35 +961,139 @@ class ContactsListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 246, 249, 249),
+
       appBar: AppBar(
+
         title: Text(title),
+        backgroundColor: Color(0xfff1f7f6),
+        surfaceTintColor: Color(0xfff1f7f6),
       ),
       body: ListView.separated(
         itemCount: contacts.length,
         // ignore: unnecessary_underscores
-        separatorBuilder: (_, __) => const Divider(height: 1),
+        separatorBuilder: (_, __) => const Divider(height: 0,color: Color(0xfff1f7f6)),
         itemBuilder: (context, index) {
           final contact = contacts[index];
 
           return ListTile(
+
+// button logic: open contact / call / video call
+            onTap: () {},
+
+            onLongPress: () {},
+            
+            contentPadding: const EdgeInsets.fromLTRB(14, 4, 14, 4),
+            
+            splashColor: thirdColor,
+
+// content : profile + name +  info + call options
             leading: CircleAvatar(
+              radius: 20,
               backgroundColor: thirdColor,
               backgroundImage: contact.profilePic,
+
               child: contact.profilePic == null
-                  ? Icon(
-                      FontAwesomeIcons.user,
-                      size: 18,
-                      color: secondaryColor,
-                    )
+                  ? Icon(Icons.person,color: secondaryColor,)
                   : null,
             ),
+
+// name
             title: Text(
               contact.name,
               style: chat,
             ),
-            onTap: () {
-              // later: open contact / call / chat
-            },
+
+
+// call icon : call 
+            trailing: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(
+                  Icons.call,
+                  color: primaryColor,
+                ),
+            ),
+
+            
+
+          );
+        },
+      ),
+    );
+  }
+}
+
+
+// Favorite contacts page section
+class FavoritesListPage extends StatelessWidget {
+// needed
+  final String title;
+  final List<FavoriteData> favorites;
+
+  const FavoritesListPage({
+    super.key,
+    required this.title,
+    required this.favorites,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color.fromARGB(255, 246, 249, 249),
+
+      appBar: AppBar(
+
+        title: Text(title),
+        backgroundColor: Color(0xfff1f7f6),
+        surfaceTintColor: Color(0xfff1f7f6),
+      ),
+      body: ListView.separated(
+        itemCount: favorites.length,
+        // ignore: unnecessary_underscores
+        separatorBuilder: (_, __) => const Divider(height: 0,color: Color(0xfff1f7f6)),
+        itemBuilder: (context, index) {
+          final contact = favorites[index];
+
+          return ListTile(
+
+// button logic: open contact / call / video call
+            onTap: () {},
+
+            onLongPress: () {},
+            
+            contentPadding: const EdgeInsets.fromLTRB(14, 4, 14, 4),
+            
+            splashColor: thirdColor,
+
+// content : profile + name +  info + call options
+            leading: CircleAvatar(
+              radius: 20,
+              backgroundColor: thirdColor,
+              backgroundImage: contact.profilePic,
+
+              child: contact.profilePic == null
+                  ? Icon(Icons.person,color: secondaryColor,)
+                  : null,
+            ),
+
+// name
+            title: Text(
+              contact.name,
+              style: chat,
+            ),
+
+
+// call icon : call 
+            trailing: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(
+                  Icons.call,
+                  color: primaryColor,
+                ),
+            ),
+
+            
+
           );
         },
       ),
