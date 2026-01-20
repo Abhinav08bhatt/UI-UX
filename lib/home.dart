@@ -119,8 +119,7 @@ class Top3PagesScroller extends StatelessWidget{
       builder: (context, constraints) {
         final screenWidth = constraints.maxWidth;
 
-        final double pageWidth =
-            screenWidth < 400 ? screenWidth : screenWidth.clamp(400.0, 600.0);
+        final double pageWidth = screenWidth < 400 ? screenWidth : screenWidth.clamp(400.0, 600.0);
 
         return SingleChildScrollView(
           scrollDirection: Axis.horizontal,

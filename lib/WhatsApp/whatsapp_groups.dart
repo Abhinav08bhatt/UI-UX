@@ -75,7 +75,7 @@ class WhatsappGroups extends StatelessWidget {
 
 
 // section to the end
-              Spacer(),
+              // Spacer(),
 
 // archived section
               ArchivedSection(),

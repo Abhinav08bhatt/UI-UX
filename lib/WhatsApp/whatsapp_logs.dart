@@ -77,7 +77,7 @@ class WhatsappLogs extends StatelessWidget {
                 title: "Contacts",
                 contacts: [
                   ContactData(name: "Avi"),
-                  ContactData(name: "Rohit"),
+                  ContactData(profilePic: AssetImage("assets/images/profile_pic_1.jpg"),name: "Rohit"),
                   ContactData(name: "Neha"),
                   ContactData(name: "Sara"),
                   ContactData(name: "Karan"),
@@ -318,121 +318,27 @@ class FavoritesSection extends StatelessWidget {
 }
 
 // contacts section
+
+// creating contacts for the contact section
 class ContactData {
   final String name;
   final ImageProvider? profilePic;
 
+// the data passed : 
   ContactData({
+// the data passed : name (req)
     required this.name,
+// the data passed : profile-pic
     this.profilePic,
   });
 }
 
-class ContactsSection extends StatelessWidget {
-  final String title;
-  final int maxRows;
-  final List<ContactData> contacts;
-
-  const ContactsSection({
-    super.key,
-    required this.title,
-    required this.contacts,
-    this.maxRows = 3,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final double width = MediaQuery.of(context).size.width;
-    final int crossAxisCount = width >= 420 ? 5 : 4;
-    final int maxItems = crossAxisCount * maxRows;
-    final int itemCount = contacts.length > maxItems
-        ? maxItems
-        : contacts.length;
-
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-
-        // title row
-        Padding(
-          padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
-          child: Row(
-            children: [
-              Icon(
-                Icons.contacts,
-                size: 20,
-                color: primaryColor,
-              ),
-              const SizedBox(width: 8),
-              Text(
-                title,
-                style: chat,
-              ),
-            ],
-          ),
-        ),
-
-        // responsive grid (NO fixed rows)
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12),
-          child: GridView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: itemCount,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: crossAxisCount,
-              crossAxisSpacing: 12,
-              mainAxisSpacing: 12,
-            ),
-            itemBuilder: (context, index) {
-              final contact = contacts[index];
-
-              return Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  CircleAvatar(
-                    radius: 26,
-                    backgroundColor: thirdColor,
-                    backgroundImage: contact.profilePic,
-                    child: contact.profilePic == null
-                        ? Icon(
-                            FontAwesomeIcons.user,
-                            size: 18,
-                            color: secondaryColor,
-                          )
-                        : null,
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    contact.name,
-                    style: message,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ],
-              );
-            },
-          ),
-        ),
-
-        Padding(
-          padding: const EdgeInsets.only(top: 12),
-          child: Divider(
-            indent: 8,
-            endIndent: 8,
-            color: whatsappBlack.withValues(alpha: 0.20),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
+// creating tiles
 class ContactCallTile extends StatelessWidget {
   final String name;
   final ImageProvider? profilePic;
 
+// needed : 
   const ContactCallTile({
     super.key,
     required this.name,
@@ -442,12 +348,14 @@ class ContactCallTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        // call logic later
-      },
+
+// call logic 
+      onTap: () {},
+
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+// tile : profile-pic
           CircleAvatar(
             radius: 26,
             backgroundColor: thirdColor,
@@ -460,7 +368,9 @@ class ContactCallTile extends StatelessWidget {
                   )
                 : null,
           ),
+      
           const SizedBox(height: 4),
+// tile : name
           Text(
             name,
             style: message,
@@ -473,6 +383,198 @@ class ContactCallTile extends StatelessWidget {
   }
 }
 
+// building the tile section 
+class ContactsSection extends StatelessWidget {
+  
+// needed
+  final String title;
+  final int maxRows;
+  final List<ContactData> contacts;
+
+  const ContactsSection({
+    super.key,
+    required this.title,
+    required this.contacts,
+
+// useful
+    this.maxRows = 3,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+
+// size of the screen
+    final double width = MediaQuery.of(context).size.width;
+// number of columns
+    final int crossAxisCount = width >= 420 ? 5 : 4;
+// max number of items
+    final int maxItems = crossAxisCount * maxRows ;
+// condition to show more
+    final bool showMore = contacts.length > maxItems;
+// number of items
+    final int itemCount = contacts.length > maxItems ? maxItems : contacts.length;
+
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+
+// title row : Contacts title + show more button (when needed)
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+          child: Row(
+            children: [
+
+// title row : Contacts tile : icon
+              Icon(
+                Icons.contacts,
+                size: 20,
+                color: primaryColor,
+              ),
+              
+              const SizedBox(width: 8),
+              
+// title row : Contacts tile : title
+              Text(
+                title,
+                style: chat,
+              ),
+
+              const Spacer(),
+
+// title row : show more button : 
+              if (showMore)
+// title row : show more button logic 
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => ContactsListPage(
+                          title: title,
+                          contacts: contacts,
+                        ),
+                      ),
+                    );
+                  },
+
+// title row : show more button : child : text + icon
+                  child: Row(
+                    children: [
+                      
+// title row : show more button : child : text 
+                      Text(
+                        "Show More",
+                        style: chat.copyWith(fontSize: 14),
+                      ),
+
+                      const SizedBox(width: 4),
+
+// title row : show more button : child : icon
+                      Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        color:secondaryColor,
+                        size: 16,
+                      ),
+
+                      // SizedBox(width: 4,)
+
+                    ],
+                  ),
+                
+                ),
+            ],
+          ),
+        ),
+
+
+// responsive grid section
+        Padding(
+          padding: EdgeInsetsGeometry.fromLTRB(16, 16, 16, 0),
+          child: GridView.builder(
+            
+// grid properties
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: itemCount,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: crossAxisCount,
+              crossAxisSpacing: 12,
+              mainAxisSpacing: 12,
+            ),
+
+// building tiles buttons : profile-pic + name
+            itemBuilder: (context, index) {
+              final contact = contacts[index];
+
+// each tile clickable 
+              return ElevatedButton(
+              
+// call logic
+                onPressed: () {
+                  
+                },
+
+// button properties
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: whatsappWhite,
+                  overlayColor: primaryColor,
+                  elevation: 0,
+                  shape: LinearBorder(),
+                  padding: EdgeInsets.all(0),
+                ),
+             
+// building tiles : profile-pic + name
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                
+// building tiles : profile-pic 
+                    CircleAvatar(
+                      radius: 26,
+                      backgroundColor: thirdColor,
+                      backgroundImage: contact.profilePic,
+                      child: contact.profilePic == null
+                          ? Icon(
+                              FontAwesomeIcons.user,
+                              size: 18,
+                              color: secondaryColor,
+                            )
+                          : null,
+                    ),
+                    
+                    SizedBox(height: 4),
+                      
+// building tiles : name
+                    Text(
+                      contact.name,
+                      style: message.copyWith(color: whatsappBlack),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+              );
+            },
+
+          ),
+        ),
+
+// content divider
+        Padding(
+          padding: const EdgeInsets.only(top: 12),
+          child: Divider(
+            indent: 8,
+            endIndent: 8,
+            color: whatsappBlack.withValues(alpha: 0.20),
+          ),
+        ),
+
+      ],
+    );
+  }
+}
+
 
 // history section
 class HistorySection extends StatelessWidget {
@@ -481,5 +583,61 @@ class HistorySection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SizedBox(height: 240);
+  }
+}
+
+
+
+
+
+// ------------------------------------- Body Navigation Pages -------------------------------------
+
+
+// 
+class ContactsListPage extends StatelessWidget {
+  final String title;
+  final List<ContactData> contacts;
+
+  const ContactsListPage({
+    super.key,
+    required this.title,
+    required this.contacts,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+      ),
+      body: ListView.separated(
+        itemCount: contacts.length,
+        separatorBuilder: (_, __) => const Divider(height: 1),
+        itemBuilder: (context, index) {
+          final contact = contacts[index];
+
+          return ListTile(
+            leading: CircleAvatar(
+              backgroundColor: thirdColor,
+              backgroundImage: contact.profilePic,
+              child: contact.profilePic == null
+                  ? Icon(
+                      FontAwesomeIcons.user,
+                      size: 18,
+                      color: secondaryColor,
+                    )
+                  : null,
+            ),
+            title: Text(
+              contact.name,
+              style: chat,
+            ),
+            onTap: () {
+              // later: open contact / call / chat
+            },
+          );
+        },
+      ),
+    );
   }
 }
