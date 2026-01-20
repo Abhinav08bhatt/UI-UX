@@ -75,45 +75,285 @@ class WhatsappLogs extends StatelessWidget {
               FavoritesSection(
                 title: "Favorites",
                 favorites: [
-                  FavoriteData(profilePic: AssetImage("assets/images/profile_pic_2.jpg"),name: "Rohit"),
-                  FavoriteData(name: "Avi"),
-                  FavoriteData(profilePic: AssetImage("assets/images/profile_pic_1.jpg"),name: "Rohit"),
-                  FavoriteData(name: "Neha"),
-                  FavoriteData(name: "Karan"),
-                  FavoriteData(profilePic: AssetImage("assets/images/profile_pic_4.jpg"),name: "Rohit"),
+                  FavoriteData(
+                    name: "Liam",
+                    profilePic: AssetImage("assets/images/profile_pic_15.jpg"),
+                  ),
+                  FavoriteData(
+                    name: "Sophie",
+                    profilePic: AssetImage("assets/images/profile_pic_16.jpeg"),
+                  ),
+                  FavoriteData(
+                    name: "Nathan",
+                    profilePic: AssetImage("assets/images/profile_pic_17.jpg"),
+                  ),
+                  FavoriteData(
+                    name: "Kelly",
+                    profilePic: AssetImage("assets/images/profile_pic_18.jpg"),
+                  ),
+                  FavoriteData(
+                    name: "Julian",
+                    profilePic: AssetImage("assets/images/profile_pic_19.jpg"),
+                  ),
+                  FavoriteData(
+                    name: "Clara",
+                    profilePic: AssetImage("assets/images/profile_pic_20.jpg"),
+                  ),
                 ],
               ),
+
 
 // Contacts section :
               ContactsSection(
                 title: "Contacts",
                 contacts: [
-                  ContactData(profilePic: AssetImage("assets/images/profile_pic_1.jpg"),name: "Rohit"),
-                  ContactData(name: "Avi"),
-                  ContactData(profilePic: AssetImage("assets/images/profile_pic_2.jpg"),name: "Rohit"),
-                  ContactData(name: "Neha"),
-                  ContactData(profilePic: AssetImage("assets/images/profile_pic_3.jpg"),name: "Rohit"),
-                  ContactData(profilePic: AssetImage("assets/images/profile_pic_4.jpg"),name: "Rohit"),
-                  ContactData(profilePic: AssetImage("assets/images/profile_pic_5.jpg"),name: "Rohit"),
-                  ContactData(name: "Sara"),
-                  ContactData(profilePic: AssetImage("assets/images/profile_pic_1.jpg"),name: "Rohit"),
-                  ContactData(name: "Karan"),
-                  ContactData(profilePic: AssetImage("assets/images/profile_pic_2.jpg"),name: "Mohit"),
-                  ContactData(profilePic: AssetImage("assets/images/profile_pic_4.jpg"),name: "Rohit"),
-                  ContactData(name: "Karan"),
+                  ContactData(name: "Emma Wilson"),
+                  ContactData(name: "Henry ", profilePic: AssetImage("assets/images/profile_pic_9.jpg")),
+                  ContactData(name: "Daniel Smith"),
+                  ContactData(name: "Olivia Brown", profilePic: AssetImage("assets/images/profile_pic_2.jpg")),
+                  ContactData(name: "Sophia Miller", profilePic: AssetImage("assets/images/profile_pic_3.jpg")),
+                  ContactData(name: "Isabella Taylor"),
+                  ContactData(name: "Michael Davis"),
+                  ContactData(name: "James ", profilePic: AssetImage("assets/images/profile_pic_4.jpg")),
+                  ContactData(name: "Benjamin ", profilePic: AssetImage("assets/images/profile_pic_5.jpg")),
+                  ContactData(name: "Alex Johnson", profilePic: AssetImage("assets/images/profile_pic_1.jpg")),
+                  ContactData(name: "Charlotte "),
+                  ContactData(name: "Ethan ", profilePic: AssetImage("assets/images/profile_pic_6.jpg")),
+                  ContactData(name: "Amelia White"),
+                  ContactData(name: "Lucas Harris", profilePic: AssetImage("assets/images/profile_pic_7.jpg")),
+                  ContactData(name: "Mia Clark"),
+                  ContactData(name: "Noah Lewis", profilePic: AssetImage("assets/images/profile_pic_8.jpg")),
+                  ContactData(name: "Kelly Walker"),
+                  ContactData(name: "Grace "),
+                  ContactData(name: "Samuel King", profilePic: AssetImage("assets/images/profile_pic_10.jpg")),
+                  ContactData(name: "Lily Wright"),
+                  ContactData(name: "Jack Lopez", profilePic: AssetImage("assets/images/profile_pic_11.jpg")),
+                  ContactData(name: "Ava Martinez"),
+                  ContactData(name: "Leo ", profilePic: AssetImage("assets/images/profile_pic_12.jpg")),
+                  ContactData(name: "Chloe Perez"),
+                  ContactData(name: "Ryan Carter", profilePic: AssetImage("assets/images/profile_pic_13.jpg")),
+                  ContactData(name: "David Green"),
+                  ContactData(name: "Ella Adams"),
+                  ContactData(name: "Natalie Scott", profilePic: AssetImage("assets/images/profile_pic_14.jpg")),
+                  ContactData(name: "Oliver "),
+                  ContactData(name: "Sophie Turner"),
                 ],
               ),
 
 
 // History section :
+// -------- Favorites appear frequently --------
               HistoryCallTile(
-                name: "Rohit",
-                lastCall: "Yesterday, 8:30 PM",
+                name: "Liam",
+                lastCall: "Today, 9:12 AM",
+                callCase: CallCase.outgoing,
+                callStatus: CallStatus.accepted,
+                callType: CallType.audio,
+                profilePic: AssetImage("assets/images/profile_pic_15.jpg"),
+              ),
+              HistoryCallTile(
+                name: "Sophie",
+                lastCall: "Today, 8:40 AM",
                 callCase: CallCase.incoming,
                 callStatus: CallStatus.missed,
+                callType: CallType.video,
+                profilePic: AssetImage("assets/images/profile_pic_16.jpeg"),
+              ),
+              HistoryCallTile(
+                name: "Nathan",
+                lastCall: "Yesterday, 11:18 PM",
+                callCase: CallCase.outgoing,
+                callStatus: CallStatus.accepted,
+                callType: CallType.video,
+                profilePic: AssetImage("assets/images/profile_pic_17.jpg"),
+              ),
+              HistoryCallTile(
+                name: "Kelly",
+                lastCall: "Yesterday, 10:02 PM",
+                callCase: CallCase.incoming,
+                callStatus: CallStatus.accepted,
+                callType: CallType.audio,
+                profilePic: AssetImage("assets/images/profile_pic_18.jpg"),
+              ),
+              HistoryCallTile(
+                name: "Julian",
+                lastCall: "Yesterday, 9:41 PM",
+                callCase: CallCase.outgoing,
+                callStatus: CallStatus.missed,
+                callType: CallType.audio,
+                profilePic: AssetImage("assets/images/profile_pic_19.jpg"),
+              ),
+              HistoryCallTile(
+                name: "Clara",
+                lastCall: "Yesterday, 8:55 PM",
+                callCase: CallCase.incoming,
+                callStatus: CallStatus.accepted,
+                callType: CallType.video,
+                profilePic: AssetImage("assets/images/profile_pic_20.jpg"),
+              ),
+
+              // -------- Regular contacts --------
+              HistoryCallTile(
+                name: "Alex Johnson",
+                lastCall: "Yesterday, 6:30 PM",
+                callCase: CallCase.outgoing,
+                callStatus: CallStatus.accepted,
                 callType: CallType.audio,
                 profilePic: AssetImage("assets/images/profile_pic_1.jpg"),
               ),
+              HistoryCallTile(
+                name: "Emma Wilson",
+                lastCall: "Yesterday, 5:12 PM",
+                callCase: CallCase.incoming,
+                callStatus: CallStatus.missed,
+                callType: CallType.audio,
+                profilePic: AssetImage("assets/images/profile_pic_2.jpg"),
+              ),
+              HistoryCallTile(
+                name: "Daniel Smith",
+                lastCall: "Yesterday, 4:47 PM",
+                callCase: CallCase.outgoing,
+                callStatus: CallStatus.accepted,
+                callType: CallType.video,
+                profilePic: AssetImage("assets/images/profile_pic_3.jpg"),
+              ),
+              HistoryCallTile(
+                name: "Olivia Brown",
+                lastCall: "Yesterday, 3:15 PM",
+                callCase: CallCase.incoming,
+                callStatus: CallStatus.accepted,
+                callType: CallType.audio,
+                profilePic: AssetImage("assets/images/profile_pic_4.jpg"),
+              ),
+              HistoryCallTile(
+                name: "Michael Davis",
+                lastCall: "Yesterday, 2:02 PM",
+                callCase: CallCase.outgoing,
+                callStatus: CallStatus.missed,
+                callType: CallType.audio,
+                profilePic: AssetImage("assets/images/profile_pic_5.jpg"),
+              ),
+
+              // -------- Favorites again (realistic repetition) --------
+              HistoryCallTile(
+                name: "Liam",
+                lastCall: "Yesterday, 1:40 PM",
+                callCase: CallCase.incoming,
+                callStatus: CallStatus.accepted,
+                callType: CallType.video,
+                profilePic: AssetImage("assets/images/profile_pic_15.jpg"),
+              ),
+              HistoryCallTile(
+                name: "Kelly",
+                lastCall: "Yesterday, 12:18 PM",
+                callCase: CallCase.outgoing,
+                callStatus: CallStatus.accepted,
+                callType: CallType.audio,
+                profilePic: AssetImage("assets/images/profile_pic_18.jpg"),
+              ),
+              HistoryCallTile(
+                name: "Sophie",
+                lastCall: "Yesterday, 11:05 AM",
+                callCase: CallCase.incoming,
+                callStatus: CallStatus.missed,
+                callType: CallType.audio,
+                profilePic: AssetImage("assets/images/profile_pic_16.jpeg"),
+              ),
+              HistoryCallTile(
+                name: "Nathan",
+                lastCall: "Yesterday, 10:22 AM",
+                callCase: CallCase.outgoing,
+                callStatus: CallStatus.accepted,
+                callType: CallType.video,
+                profilePic: AssetImage("assets/images/profile_pic_17.jpg"),
+              ),
+
+              // -------- More random contacts --------
+              HistoryCallTile(
+                name: "Lucas Harris",
+                lastCall: "2 days ago, 9:50 PM",
+                callCase: CallCase.incoming,
+                callStatus: CallStatus.accepted,
+                callType: CallType.audio,
+                profilePic: AssetImage("assets/images/profile_pic_7.jpg"),
+              ),
+              HistoryCallTile(
+                name: "Mia Clark",
+                lastCall: "2 days ago, 8:14 PM",
+                callCase: CallCase.outgoing,
+                callStatus: CallStatus.missed,
+                callType: CallType.video,
+                profilePic: AssetImage("assets/images/profile_pic_8.jpg"),
+              ),
+              HistoryCallTile(
+                name: "Noah Lewis",
+                lastCall: "2 days ago, 7:33 PM",
+                callCase: CallCase.incoming,
+                callStatus: CallStatus.accepted,
+                callType: CallType.audio,
+                profilePic: AssetImage("assets/images/profile_pic_9.jpg"),
+              ),
+
+              // -------- Favorites dominate again --------
+              HistoryCallTile(
+                name: "Julian",
+                lastCall: "2 days ago, 6:05 PM",
+                callCase: CallCase.outgoing,
+                callStatus: CallStatus.accepted,
+                callType: CallType.video,
+                profilePic: AssetImage("assets/images/profile_pic_19.jpg"),
+              ),
+              HistoryCallTile(
+                name: "Clara",
+                lastCall: "2 days ago, 5:48 PM",
+                callCase: CallCase.incoming,
+                callStatus: CallStatus.missed,
+                callType: CallType.audio,
+                profilePic: AssetImage("assets/images/profile_pic_20.jpg"),
+              ),
+
+              // -------- Fillers to reach 50 --------
+              HistoryCallTile(
+                name: "Henry Hall",
+                lastCall: "3 days ago, 9:10 PM",
+                callCase: CallCase.outgoing,
+                callStatus: CallStatus.accepted,
+                callType: CallType.audio,
+                profilePic: AssetImage("assets/images/profile_pic_10.jpg"),
+              ),
+              HistoryCallTile(
+                name: "Grace Young",
+                lastCall: "3 days ago, 8:42 PM",
+                callCase: CallCase.incoming,
+                callStatus: CallStatus.accepted,
+                callType: CallType.video,
+                profilePic: AssetImage("assets/images/profile_pic_11.jpg"),
+              ),
+              HistoryCallTile(
+                name: "Jack Lopez",
+                lastCall: "3 days ago, 7:20 PM",
+                callCase: CallCase.outgoing,
+                callStatus: CallStatus.missed,
+                callType: CallType.audio,
+                profilePic: AssetImage("assets/images/profile_pic_12.jpg"),
+              ),
+              HistoryCallTile(
+                name: "Ava Martinez",
+                lastCall: "3 days ago, 6:05 PM",
+                callCase: CallCase.incoming,
+                callStatus: CallStatus.accepted,
+                callType: CallType.video,
+                profilePic: AssetImage("assets/images/profile_pic_13.jpg"),
+              ),
+              HistoryCallTile(
+                name: "Oliver Baker",
+                lastCall: "4 days ago, 9:55 PM",
+                callCase: CallCase.outgoing,
+                callStatus: CallStatus.accepted,
+                callType: CallType.audio,
+                profilePic: AssetImage("assets/images/profile_pic_14.jpg"),
+              ),
+
 
 
             ],
@@ -929,11 +1169,14 @@ class HistoryCallTile extends StatelessWidget {
       ),
 
 // Call type icon
-      trailing: Icon(
-        callType == CallType.audio
-            ? Icons.call
-            : Icons.videocam,
-        color: primaryColor,
+      trailing: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Icon(
+          callType == CallType.audio
+              ? Icons.call
+              : Icons.videocam,
+          color: primaryColor,
+        ),
       ),
     );
   }
