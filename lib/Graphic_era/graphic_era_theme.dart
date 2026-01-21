@@ -19,7 +19,14 @@ const double kSpace20 = 20;
 const double kSpace24 = 24;
 
 // TextStyles
-final TextStyle kHeadingStyle = GoogleFonts.robotoSerif(
+final TextStyle kGraphicLogo = GoogleFonts.robotoSerif(
+  fontWeight: FontWeight.w600,
+  color: Colors.black,
+  fontSize: 30,
+  height: 1,
+  letterSpacing: 0.80
+);
+final TextStyle kHeadingStyle = GoogleFonts.inter(
   fontSize: 20,
   fontWeight: FontWeight.w600,
   color: Colors.black,
@@ -30,12 +37,12 @@ final TextStyle kSubHeadingStyle = GoogleFonts.inter(
   color: graphicBlack,
 );
 final TextStyle kInfoHeadingStyle = GoogleFonts.inter(
-  fontSize: 16,
+  fontSize: 20,
   fontWeight: FontWeight.w500,
   color: Colors.black,
 );
 final TextStyle kInfoStyle = GoogleFonts.inter(
-  fontSize: 16,
+  fontSize: 20,
   fontWeight: FontWeight.w500,
   color: thirdColor,
 );
