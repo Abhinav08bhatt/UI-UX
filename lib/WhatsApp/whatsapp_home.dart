@@ -4,32 +4,71 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
     
 // Colors 
 
-Color whatsappWhite = Color(0xfff1f7f6);
-Color whatsappBlack = Color(0xff252525);
-Color primaryColor = Color(0xff29BE63);
-Color secondaryColor = Color(0xff03624c);
-Color thirdColor = Color(0xffDCFFD4);
+const Color whatsappWhite = Color(0xfff1f7f6);
+const Color whatsappBlack = Color(0xff252525);
+const Color primaryColor = Color(0xff29BE63);
+const Color secondaryColor = Color(0xff03624c);
+const Color thirdColor = Color(0xffDCFFD4);
 
 // Fonts
 
-TextStyle heading = GoogleFonts.inter(
+final TextStyle heading = GoogleFonts.inter(
   fontSize: 18,
   color: whatsappBlack,
   fontWeight: FontWeight.w800,
   letterSpacing: 0
 );
-TextStyle message = GoogleFonts.inter(
+final TextStyle message = GoogleFonts.inter(
   fontSize: 16,
-  color: whatsappBlack.withValues(alpha: 0.6),
+  color: whatsappBlack,
   fontWeight: FontWeight.w400,
   letterSpacing: 0
 );
-TextStyle chat = GoogleFonts.inter(
+final TextStyle chat = GoogleFonts.inter(
   fontSize: 18,
   color: whatsappBlack,
   fontWeight: FontWeight.w500,
   letterSpacing: 0
 );
+
+final TextStyle appBarTitle = GoogleFonts.inter(
+  fontSize: 34,
+  height: 1,
+  letterSpacing: -1,
+  color: primaryColor,
+  fontWeight: FontWeight.w600,
+);
+
+final OutlineInputBorder _searchEnabledBorder = OutlineInputBorder(
+  borderRadius: BorderRadius.circular(32),
+  borderSide: const BorderSide(
+    color: Colors.black26,
+    width: 1.5,
+  ),
+);
+
+final OutlineInputBorder _searchFocusedBorder = OutlineInputBorder(
+  borderRadius: BorderRadius.circular(32),
+  borderSide: const BorderSide(
+    color: primaryColor,
+    width: 1.5,
+  ),
+);
+
+final TextStyle _searchTextStyle = chat;
+
+final TextStyle _searchLabelStyle = message.copyWith(
+  fontWeight: FontWeight.w500,
+  color: whatsappBlack,
+);
+
+final TextStyle _searchHintStyle = message.copyWith(
+  fontSize: 16,
+  color: whatsappBlack.withValues(alpha: 0.6),
+);
+
+const EdgeInsets _searchContentPadding =
+    EdgeInsets.fromLTRB(20, 16, 20, 16);
 
 
 class WhatsappHome extends StatelessWidget {
@@ -114,15 +153,7 @@ class AppBarClass extends StatelessWidget{
                   padding: const EdgeInsets.fromLTRB(16, 0, 0, 0),
 
 // appbar : Column 1 : logo
-                  child: Text("WhatsApp",
-                    style: GoogleFonts.inter(
-                      fontSize: 34,
-                      height: 1,
-                      letterSpacing: -1,
-                      color:primaryColor,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
+                  child: Text("WhatsApp", style: appBarTitle)
                 ),
 
 // appbar : Column 1 : actions
@@ -182,24 +213,26 @@ class AppBarClass extends StatelessWidget{
                     SizedBox(width: 8,),
                 
 // appbar : Column 2 : chat-icon
-                    Container(
-                      height: 54,
-                      width: 54,
+                    DecoratedBox(
                       decoration: BoxDecoration(
                         color: primaryColor,
                         borderRadius: BorderRadius.circular(38),
                       ),
-                      child: IconButton(
-                        
-// chat-icon action :
-                        onPressed: (){}, 
-                        
-                        icon: Padding(
-                          padding: const EdgeInsets.fromLTRB(8, 6, 6, 8),
-                          child: FaIcon(
-                            FontAwesomeIcons.userPlus,
-                            color: whatsappWhite,
-                            size: 20,
+                      child: SizedBox(
+                        height: 54,
+                        width: 54,
+                        child: IconButton(
+                          
+                        // chat-icon action :
+                          onPressed: (){}, 
+                          
+                          icon: Padding(
+                            padding: const EdgeInsets.fromLTRB(8, 6, 6, 8),
+                            child: FaIcon(
+                              FontAwesomeIcons.userPlus,
+                              color: whatsappWhite,
+                              size: 20,
+                            ),
                           ),
                         ),
                       ),
@@ -215,72 +248,35 @@ class AppBarClass extends StatelessWidget{
 }
 
 // search-bar
-class TopSearchBar extends StatelessWidget{
+class TopSearchBar extends StatelessWidget {
   const TopSearchBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-
     return Expanded(
       child: TextField(
-
-// input text style
-        style: chat.copyWith(fontWeight: FontWeight.w400),
-
-// cursor style
+        style: _searchTextStyle,
         cursorColor: primaryColor,
-
-// input filed decoration
         decoration: InputDecoration(
           filled: true,
           fillColor: whatsappWhite,
-          contentPadding: EdgeInsets.fromLTRB(20, 16, 20, 16),
-
-// label text
-          label: Text(
-            "Search",
-            style: message.copyWith(fontWeight: FontWeight.w500,color: whatsappBlack),
-          ),
-
-// hint text 
-          hint: Text(
-            "Search for contact or file",
-            style: message.copyWith(fontSize: 16),
-          ),
-
-// non focus border
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(32),
-            borderSide: BorderSide(
-              color:  Colors.black26,
-              width: 1.5,
-            )
-          ),
-      
-// focus border
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(32),
-            borderSide: BorderSide(
-              color: primaryColor,
-              width: 1.5,
-            )
-          ),
-
-// icon
-          prefixIcon: Padding(
-            padding: const EdgeInsets.fromLTRB(10,10,2,10),
+          contentPadding: _searchContentPadding,
+          label: Text('Search', style: _searchLabelStyle),
+          hintText: 'Search for contact or file',
+          hintStyle: _searchHintStyle,
+          enabledBorder: _searchEnabledBorder,
+          focusedBorder: _searchFocusedBorder,
+          prefixIcon: const Padding(
+            padding: EdgeInsets.fromLTRB(10, 10, 2, 10),
             child: Icon(
               Icons.search,
               color: Colors.black54,
-              size:28,
+              size: 28,
             ),
           ),
-
         ),
-
       ),
     );
-
   }
 }
 
@@ -337,7 +333,7 @@ class ArchivedSection extends StatelessWidget{
 // archived text
           Text(
             "Archived",
-            style: message.copyWith(fontSize: 17,fontWeight: FontWeight.w600),
+            style: message.copyWith(fontSize: 17,fontWeight: FontWeight.w600,color: whatsappBlack.withValues(alpha: 0.6)),
           )
       
         ],

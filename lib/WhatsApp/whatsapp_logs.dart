@@ -4,27 +4,27 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
     
 // Colors 
 
-Color whatsappWhite = Color(0xfff1f7f6);
-Color whatsappBlack = Color(0xff252525);
-Color primaryColor = Color(0xff29BE63);
-Color secondaryColor = Color(0xff03624c);
-Color thirdColor = Color(0xffDCFFD4);
+const Color whatsappWhite = Color(0xfff1f7f6);
+const Color whatsappBlack = Color(0xff252525);
+const Color primaryColor = Color(0xff29BE63);
+const Color secondaryColor = Color(0xff03624c);
+const Color thirdColor = Color(0xffDCFFD4);
 
 // Fonts
 
-TextStyle heading = GoogleFonts.inter(
+final TextStyle heading = GoogleFonts.inter(
   fontSize: 18,
   color: whatsappBlack,
   fontWeight: FontWeight.w800,
   letterSpacing: 0
 );
-TextStyle message = GoogleFonts.inter(
+final TextStyle message = GoogleFonts.inter(
   fontSize: 16,
   color: whatsappBlack.withValues(alpha: 0.6),
   fontWeight: FontWeight.w400,
   letterSpacing: 0
 );
-TextStyle chat = GoogleFonts.inter(
+final TextStyle chat = GoogleFonts.inter(
   fontSize: 18,
   color: whatsappBlack,
   fontWeight: FontWeight.w500,
