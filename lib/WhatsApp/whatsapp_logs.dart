@@ -142,7 +142,6 @@ class WhatsappLogs extends StatelessWidget {
 
 
 // History section :
-// -------- Favorites appear frequently --------
               HistoryCallTile(
                 name: "Liam",
                 lastCall: "Today, 9:12 AM",
@@ -771,9 +770,8 @@ class FavoritesSection extends StatelessWidget {
                   backgroundColor: whatsappWhite,
                   elevation: 0,
                   padding: EdgeInsets.zero,
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(8)),
-                  ),
+                  overlayColor: primaryColor,
+                  shape: const LinearBorder()
                 ),
 
 // building tiles : profile-pic + name
