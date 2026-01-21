@@ -1,6 +1,7 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ui_pages/Graphic_era/graphic_era_loading.dart';
 import 'package:ui_pages/WhatsApp/whatsapp_loading.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -306,6 +307,36 @@ class Top3PagesScroller extends StatelessWidget {
               SizedBox(
                 width: pageWidth,
                 child: Top3Pages(
+                  appName: 'Graphic Era',
+                  appIcon: const FaIcon(
+                    FontAwesomeIcons.graduationCap,
+                    size: 40,
+                    color: Color(0xFF40A9FF),
+                  ),
+                  font: 'Inter',
+                  primaryTextStyle: GoogleFonts.inter(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  primaryColor: const Color(0xFF40A9FF),
+                  primaryColorHex: '#40A9FF',
+                  secondaryColor: const Color(0xFFDFEEFF),
+                  secondaryColorHex: '#DFEEFF',
+                  thirdColor: const Color(0xFF0084FF),
+                  thirdColorHex: '#0084FF',
+                  pageName: 'graphic_era',
+                  gitFolderName: 'graphic_era',
+                  destinationPage: const GraphicLoading(),
+                  gitFolderLink:
+                      'https://github.com/Abhinav08bhatt/UI-UX/tree/main/lib/Graphic_era',
+                ),
+              ),
+
+              const SizedBox(width: kSpace16),
+
+              SizedBox(
+                width: pageWidth,
+                child: Top3Pages(
                   appName: 'Airbnb',
                   appIcon: const FaIcon(
                     FontAwesomeIcons.airbnb,
@@ -330,6 +361,7 @@ class Top3PagesScroller extends StatelessWidget {
                       'https://github.com/Abhinav08bhatt/UI-UX/tree/main/lib/Airbnb',
                 ),
               ),
+
 
               const SizedBox(width: kSpace16),
 
