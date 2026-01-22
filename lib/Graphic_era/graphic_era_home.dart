@@ -50,7 +50,7 @@ class _GraphicEraHomeContent extends StatelessWidget {
 
         // search
         Padding(
-          padding: const EdgeInsets.fromLTRB(16,24,16,4),
+          padding: const EdgeInsets.fromLTRB(16,20,16,4),
           child: TopSearchBar(),
         ),
 
