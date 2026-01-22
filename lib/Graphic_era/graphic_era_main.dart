@@ -15,26 +15,49 @@ class GraphicEraMain extends StatefulWidget{
 }
 
 // extending the stateful widget
-class _GraphicEraMain extends State<GraphicEraMain>{
+class _GraphicEraMain extends State<GraphicEraMain> {
+  int index = 0;
+  late final PageController _pageController;
 
-// page index for navigation
-  int index = 0;  
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: index);
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     
     // navigation pages
-    final pages = const [
-      GraphicEraHome(),
-      GraphicEraAttendance(),
-      GraphicEraExam(),
-    ];
+    // final pages = const [
+    //   GraphicEraHome(),
+    //   GraphicEraAttendance(),
+    //   GraphicEraExam(),
+    // ];
 
     return Scaffold(
       backgroundColor: graphicWhite,
       
       
-      body: pages[index],
+body: PageView(
+  controller: _pageController,
+  onPageChanged: (value) {
+    setState(() {
+      index = value;
+    });
+  },
+  children: const [
+    GraphicEraHome(),
+    GraphicEraAttendance(),
+    GraphicEraExam(),
+  ],
+),
 
 // navigation-bar start
       bottomNavigationBar: SizedBox(
@@ -46,11 +69,14 @@ class _GraphicEraMain extends State<GraphicEraMain>{
           currentIndex: index,
 
 // changing index value depending on the page
-          onTap: (value){
-            setState(() {
-              index = value;
-            });
-          },
+onTap: (value) {
+  _pageController.animateToPage(
+    value,
+    duration: const Duration(milliseconds: 300),
+    curve: Curves.easeOut,
+  );
+},
+
 
 // navigation bar properties :
           iconSize: 24,
