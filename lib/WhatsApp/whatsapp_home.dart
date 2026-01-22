@@ -112,7 +112,6 @@ class WhatsappHome extends StatelessWidget {
 
 
 
-
 // section to the end
               // Spacer(),
 
