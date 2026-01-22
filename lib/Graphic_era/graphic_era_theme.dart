@@ -22,9 +22,9 @@ const double kSpace24 = 24;
 final TextStyle kGraphicLogo = GoogleFonts.robotoSerif(
   fontWeight: FontWeight.w600,
   color: Colors.black,
-  fontSize: 30,
+  fontSize: 24,
   height: 1,
-  letterSpacing: 0.80
+  letterSpacing: 0.50
 );
 final TextStyle kHeadingStyle = GoogleFonts.inter(
   fontSize: 20,
