@@ -21,7 +21,8 @@ const double kSpace24 = 24;
 // TextStyles
 final TextStyle kGraphicLogo = GoogleFonts.robotoSerif(
   fontWeight: FontWeight.w600,
-  color: Colors.black,
+  // color: Colors.black,
+  color: graphicBlack,
   fontSize: 24,
   height: 1,
   letterSpacing: 0.50
@@ -40,6 +41,7 @@ final TextStyle kInfoHeadingStyle = GoogleFonts.inter(
   fontSize: 20,
   fontWeight: FontWeight.w500,
   color: Colors.black,
+  letterSpacing: 0
 );
 final TextStyle kInfoStyle = GoogleFonts.inter(
   fontSize: 20,
