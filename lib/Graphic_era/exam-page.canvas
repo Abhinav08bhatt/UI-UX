@@ -1,0 +1,291 @@
+{
+  "nodes": [
+    {
+      "type": "text",
+      "id": "4eb74d37-4dfb-47cf-9e64-bd0fcf9889b9",
+      "x": 806,
+      "y": 426.5,
+      "width": 260,
+      "height": 66,
+      "text": "---\ntext-align: center\n---\n\n\nexam page"
+    },
+    {
+      "type": "text",
+      "id": "c6a8dd00-3798-45b7-b417-89ffdbcc6df2",
+      "x": 550,
+      "y": 493.453125,
+      "width": 194,
+      "height": 152,
+      "text": "important features :\n- Exam dates\n- Admit card\n- Result"
+    },
+    {
+      "type": "text",
+      "id": "acb73f11-f986-4386-a5dc-21a2282ed7aa",
+      "x": 820,
+      "y": 1154.953125,
+      "width": 260,
+      "height": 153,
+      "text": "phases :\n- before exam\n- during exam\n- after exam"
+    },
+    {
+      "type": "text",
+      "id": "ae765722-4f6f-4353-800e-e1664e1799e1",
+      "x": 783,
+      "y": 585.953125,
+      "width": 313,
+      "height": 190,
+      "text": "plan :\n\ndivide the page into two sections\n\n- primary : the current thing\n- secondary : past or future"
+    },
+    {
+      "type": "text",
+      "id": "5e1fa987-dbac-488b-8909-efb946e1b37a",
+      "x": 539,
+      "y": 812.65625,
+      "width": 293,
+      "height": 191,
+      "text": "primary page :\n\nthe active part : 70 %\n\na card showing info about the currently important thing.\ndepending on the exam phasse"
+    },
+    {
+      "type": "text",
+      "id": "6e3fc6d0-5b58-478b-b2b5-812787cd037a",
+      "x": 1022,
+      "y": 809.296875,
+      "width": 303,
+      "height": 192,
+      "text": "secondary page : 30 % (10 each)\n\n3 buttons (page navigator)\n\n1. exam dates (acadmic calander)\n2. admitcard\n3. result"
+    },
+    {
+      "type": "text",
+      "id": "7b202b0f-8b96-4396-9f82-92e9903bfa96",
+      "x": 528,
+      "y": 1191.171875,
+      "width": 242,
+      "height": 80,
+      "text": "before exam (30 days before the exam month)"
+    },
+    {
+      "type": "text",
+      "id": "18819f10-39cb-4567-8582-d8a7ba7f86c7",
+      "x": 1173,
+      "y": 1188.171875,
+      "width": 288,
+      "height": 80,
+      "text": "after exam (last day of exam to another \"before exam phase\")"
+    },
+    {
+      "type": "text",
+      "id": "dff6534d-e09e-4725-932d-a86a4b49906b",
+      "x": 799,
+      "y": 1377.171875,
+      "width": 306,
+      "height": 72,
+      "text": "during exam (as soon as admit card is out to last exam)"
+    },
+    {
+      "type": "text",
+      "id": "15433497-a1cf-489f-98da-e44786f9a167",
+      "x": 28,
+      "y": 973.171875,
+      "width": 426,
+      "height": 254,
+      "text": "primary\n\na card saying exam will start around xx/xx/xxxx till xx/xx/xxxx . For more info check the Acadmic Calander\n\nAdmit card will be released 10 days before the exam\n\nand a notification icon that will say that..turn on the notification to know then the admit card is released."
+    },
+    {
+      "type": "text",
+      "id": "d6d8fbb0-0875-4fd5-8c58-6918ed3e09a0",
+      "x": 191,
+      "y": 1267.171875,
+      "width": 260,
+      "height": 214,
+      "text": "secondary\n\n3 buttons (page navigator)\n\n1. exam dates (acadmic calander)\n2. admitcard\n3. result"
+    },
+    {
+      "type": "text",
+      "id": "07ededd3-30ab-4c42-8862-4c7b6c0fcbf5",
+      "x": 514.921875,
+      "y": 1511.5625,
+      "width": 426,
+      "height": 254,
+      "text": "primary \n\nclear text saying exam will be from xx/xx/xxxx to xx/xx/xxxx (exact dates)\n\nclearly saying admit card is out : here it is go download it\n\nand why not a all the best "
+    },
+    {
+      "type": "text",
+      "id": "6fc4fff2-3c40-45c3-8167-1c0a4b599d21",
+      "x": 1011.921875,
+      "y": 1509.5625,
+      "width": 260,
+      "height": 214,
+      "text": "secondary\n\n3 buttons (page navigator)\n\n1. exam dates (acadmic calander)\n2. admitcard\n3. result"
+    },
+    {
+      "type": "text",
+      "id": "1776bd83-fe69-476a-a7cc-64f75dc5cb0c",
+      "x": 1518.53125,
+      "y": 951.046875,
+      "width": 426,
+      "height": 254,
+      "text": "primary \n\nclear text saying exam is now over and result will be out soon and     \na notification saying ....to be notified upon exam result press teh bell\n\n(if result if out a clear thingy saying go check your result its out)"
+    },
+    {
+      "type": "text",
+      "id": "51f59937-10e8-4bc5-bcff-048b12c830df",
+      "x": 1520.53125,
+      "y": 1279.046875,
+      "width": 260,
+      "height": 214,
+      "text": "secondary\n\n3 buttons (page navigator)\n\n1. exam dates (acadmic calander)\n2. admitcard\n3. result"
+    }
+  ],
+  "edges": [
+    {
+      "id": "191e90c8-ddcd-4122-bc07-f28798de3b1d",
+      "fromNode": "4eb74d37-4dfb-47cf-9e64-bd0fcf9889b9",
+      "fromSide": "left",
+      "toNode": "c6a8dd00-3798-45b7-b417-89ffdbcc6df2",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "style": "solid",
+      "shape": "curved"
+    },
+    {
+      "id": "86662354-13f3-45bf-a7d8-647bd2f478f9",
+      "fromNode": "4eb74d37-4dfb-47cf-9e64-bd0fcf9889b9",
+      "fromSide": "bottom",
+      "toNode": "ae765722-4f6f-4353-800e-e1664e1799e1",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "style": "solid",
+      "shape": "curved"
+    },
+    {
+      "id": "12379ca1-7819-4488-8d43-872489f5126e",
+      "fromNode": "ae765722-4f6f-4353-800e-e1664e1799e1",
+      "fromSide": "left",
+      "toNode": "5e1fa987-dbac-488b-8909-efb946e1b37a",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "style": "solid",
+      "shape": "curved"
+    },
+    {
+      "id": "1c4f3169-c34f-4f48-9017-7c4468bfb8b3",
+      "fromNode": "ae765722-4f6f-4353-800e-e1664e1799e1",
+      "fromSide": "right",
+      "toNode": "6e3fc6d0-5b58-478b-b2b5-812787cd037a",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "style": "solid",
+      "shape": "curved"
+    },
+    {
+      "id": "832ec89e-a3d8-4b42-a001-90a8bfe2f72b",
+      "fromNode": "5e1fa987-dbac-488b-8909-efb946e1b37a",
+      "fromSide": "bottom",
+      "toNode": "acb73f11-f986-4386-a5dc-21a2282ed7aa",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "style": "solid",
+      "shape": "curved"
+    },
+    {
+      "id": "2d16cc2a-6f26-48fa-8db0-a09c3ea9fcef",
+      "fromNode": "6e3fc6d0-5b58-478b-b2b5-812787cd037a",
+      "fromSide": "bottom",
+      "toNode": "acb73f11-f986-4386-a5dc-21a2282ed7aa",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "style": "solid",
+      "shape": "curved"
+    },
+    {
+      "id": "191b957a-1a7f-4975-b344-76a30a556d39",
+      "fromNode": "acb73f11-f986-4386-a5dc-21a2282ed7aa",
+      "fromSide": "bottom",
+      "toNode": "dff6534d-e09e-4725-932d-a86a4b49906b",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "style": "solid",
+      "shape": "curved"
+    },
+    {
+      "id": "8bf300e9-a8a5-4142-8d70-aa01dfd61b67",
+      "fromNode": "7b202b0f-8b96-4396-9f82-92e9903bfa96",
+      "fromSide": "top",
+      "toNode": "15433497-a1cf-489f-98da-e44786f9a167",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "style": "solid",
+      "shape": "curved"
+    },
+    {
+      "id": "49a9d72b-2c30-4062-a822-a4fda02809e3",
+      "fromNode": "7b202b0f-8b96-4396-9f82-92e9903bfa96",
+      "fromSide": "bottom",
+      "toNode": "d6d8fbb0-0875-4fd5-8c58-6918ed3e09a0",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "style": "solid",
+      "shape": "curved"
+    },
+    {
+      "id": "6adab6d7-7937-469c-90d0-007fa3bc6d4e",
+      "fromNode": "acb73f11-f986-4386-a5dc-21a2282ed7aa",
+      "fromSide": "left",
+      "toNode": "7b202b0f-8b96-4396-9f82-92e9903bfa96",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "style": "solid",
+      "shape": "curved"
+    },
+    {
+      "id": "04113123-ecb1-446e-9ed5-3fb21733102f",
+      "fromNode": "dff6534d-e09e-4725-932d-a86a4b49906b",
+      "fromSide": "left",
+      "toNode": "07ededd3-30ab-4c42-8862-4c7b6c0fcbf5",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "style": "solid",
+      "shape": "curved"
+    },
+    {
+      "id": "06c933b6-14da-4db5-8537-d8a4f0e76719",
+      "fromNode": "dff6534d-e09e-4725-932d-a86a4b49906b",
+      "fromSide": "right",
+      "toNode": "6fc4fff2-3c40-45c3-8167-1c0a4b599d21",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "style": "solid",
+      "shape": "curved"
+    },
+    {
+      "id": "e03fdb10-bb99-42fa-b556-cd17b03bb68f",
+      "fromNode": "acb73f11-f986-4386-a5dc-21a2282ed7aa",
+      "fromSide": "right",
+      "toNode": "18819f10-39cb-4567-8582-d8a7ba7f86c7",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "style": "solid",
+      "shape": "curved"
+    },
+    {
+      "id": "f25e8d23-7ed5-4b9a-846a-5efc5ec84400",
+      "fromNode": "18819f10-39cb-4567-8582-d8a7ba7f86c7",
+      "fromSide": "top",
+      "toNode": "1776bd83-fe69-476a-a7cc-64f75dc5cb0c",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "style": "solid",
+      "shape": "curved"
+    },
+    {
+      "id": "88546f7e-cf71-4469-9983-165764c2891e",
+      "fromNode": "18819f10-39cb-4567-8582-d8a7ba7f86c7",
+      "fromSide": "bottom",
+      "toNode": "51f59937-10e8-4bc5-bcff-048b12c830df",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "style": "solid",
+      "shape": "curved"
+    }
+  ]
+}
